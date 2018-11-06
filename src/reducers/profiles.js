@@ -1,6 +1,6 @@
-import dummyInitialState from './dummyData';
+import profileFixtures from '../fixtures/profiles';
 
-export default (state = dummyInitialState, action = {}) => {
+export default (state = profileFixtures, action = {}) => {
   switch (action.type) {
     case 'ADD_LIKE':
       const newState = {...state};

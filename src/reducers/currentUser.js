@@ -1,6 +1,6 @@
-import dummyInitialState from './dummyData';
+import profileFixtures from '../fixtures/profiles';
 
-export default (state = dummyInitialState[14343], action = {}) => {
+export default (state = profileFixtures[1], action = {}) => {
   switch (action.type) {
     default:
       return state;
