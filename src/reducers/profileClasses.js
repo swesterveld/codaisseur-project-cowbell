@@ -12,6 +12,7 @@ class Profile {
     this.id = id;
     this.type = type; // either 'musician' or 'band'
     this.likes = [];
+    this.candidates = []
   }
 
   static genres = () => {
