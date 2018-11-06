@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import ProfileDetailsContainer from './ProfileDetailsContainer';
+import ProfileCardContainer from './ProfileCardContainer';
 
 class ProfileList extends Component {
   state = {  }
 
   render() { 
     return ( <div>
-      <ProfileDetailsContainer />
+      <ProfileCardContainer />
       <button> like </button>
       <button> dislike </button>
     </div> );
