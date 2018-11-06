@@ -10,7 +10,7 @@ class Profile {
     this.recordingURLs = recordingURLs;
 
     this.id = id;
-    this.type = type;
+    this.type = type; // either 'musician' or 'band'
     this.likes = [];
   }
 
