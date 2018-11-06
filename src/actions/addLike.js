@@ -9,9 +9,3 @@ export function addLike(fromId, toId) {
     }
   }
 }
-
-/*
-
-
-bandIds beginnen met een 'B'
-*/
