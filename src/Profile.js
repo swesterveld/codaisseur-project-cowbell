@@ -1,38 +1,60 @@
 class Profile {
-  constructor(name='', genres=[], description='', pictureURL='', location='', 
-              contactInfo='', recordingURLs=[], id, type='') {
+  constructor(
+    id,
+    type=null,
+    name='',
+    genres=[],
+    description='',
+    pictureURL='',
+    location='',
+    contactInfo='',
+    recordingURLs=[],
+  ) {
+    this.id = id; // unique number
+    this.type = type; // either 'musician' or 'band'
     this.name = name;
-    this.genres = genres;
-    this.description = description;
-    this.pictureURL = pictureURL;
-    this.location = location;
     this.contactInfo = contactInfo;
+    this.description = description;
+    this.genres = genres;
+    this.location = location;
+    this.pictureURL = pictureURL;
     this.recordingURLs = recordingURLs;
 
-    this.id = id;
-    this.type = type; // either 'musician' or 'band'
     this.likes = [];
+    this.dislikes = []
     this.candidates = []
+    this.matches = []
   }
 
   static genres = () => {
     return [
-      'rock',
-      'pop',
+      'Hip-hop',
+      'Indie',
+      'Jazz',
+      'Pop',
+      'Rock',
+      'R&B',
+      'Soul'
     ]
   }
 
   static locations = () => {
     return [
       'Amsterdam',
+      'Brussels',
+      'Hilversum',
+      'Nieuwegein',
       'Rotterdam',
+      'Utrecht',
+      'Zaandam'
     ]
   }
 
-  static instruments = () => {
+  static roles = () => {
     return [
-      'guitar',
-      'piano',
+      'Bassist',
+      'Guitar',
+      'Singer',
     ]
   }
 
@@ -42,10 +64,32 @@ class Profile {
 }
 
 class Musician extends Profile {
-  constructor(name, genres, description, pictureURL, location, contactInfo, 
-              recordingURLs, id, instruments=[], age=0, gender='m', bandId=null) {
-    super(name, genres, description, pictureURL, location, contactInfo, recordingURLs, id, 'musician');
-    this.instruments = instruments;
+  constructor(
+    id,
+    name,
+    genres,
+    description,
+    pictureURL,
+    location,
+    contactInfo,
+    recordingURLs,
+    roles=[],
+    age=0,
+    gender='m',
+    bandId=null
+  ) {
+    super(
+      id,
+      'musician',
+      name,
+      contactInfo,
+      description,
+      genres,
+      location,
+      pictureURL,
+      recordingURLs,
+    );
+    this.roles = roles;
     this.age = age;
     this.gender = gender;
     this.bandId = bandId;
@@ -53,10 +97,29 @@ class Musician extends Profile {
 }
 
 class Band extends Profile {
-  constructor(name, genres, description, pictureURL, location, contactInfo, 
-              recordingURLs, id, wantedInstruments=[]) {
-    super(name, genres, description, pictureURL, location, contactInfo, recordingURLs, id, 'band');
-    this.wantedInstruments = wantedInstruments;
+  constructor(
+    id,
+    name,
+    genres,
+    description,
+    pictureURL,
+    location,
+    contactInfo,
+    recordingURLs,
+    wantedRoles=[]
+  ) {
+    super(
+      id,
+      'band',
+      name,
+      contactInfo,
+      description,
+      genres,
+      location,
+      pictureURL,
+      recordingURLs,
+    );
+    this.wantedRoles = wantedRoles;
   }
 }
 

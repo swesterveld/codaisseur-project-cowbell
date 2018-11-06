@@ -13,7 +13,7 @@ const profileFixtures = {
       'https://open.spotify.com/track/1PVTvvxpSkyJWemW1CwVVk?si=uKFMguXVSfqlAp1cidlcJA'
     ],
     id: 1,
-    instruments: [],
+    roles: ['Singer'],
     age: 55,
     gender: 'male',
     bandId: null
@@ -30,7 +30,7 @@ const profileFixtures = {
       'https://www.youtube.com/watch?v=bo_efYhYU2A'
     ],
     id: 2,
-    instruments: [],
+    roles: ['Singer'],
     age: 32,
     gender: 'female',
     bandId: null
@@ -47,7 +47,7 @@ const profileFixtures = {
       'https://open.spotify.com/track/4S8d14HvHb70ImctNgVzQQ?si=tNFutkkoT9q4UWdPz4nSZw'
     ],
     id: 3,
-    instruments: [],
+    roles: ['Singer'],
     age: 41,
     gender: 'male',
     bandId: null
@@ -64,7 +64,7 @@ const profileFixtures = {
       'https://open.spotify.com/track/50kpGaPAhYJ3sGmk6vplg0?si=LqeP_CdLRr2IwvfH_4CSDA'
     ],
     id: 4,
-    instruments: [],
+    roles: ['Singer'],
     age: 14,
     gender: 'male',
     bandId: null
@@ -80,7 +80,7 @@ const profileFixtures = {
       'https://www.youtube.com/watch?v=PeonBmeFR8o'
     ],
     id: 5,
-    instruments: [],
+    roles: ['Singer'],
     age: 37,
     gender: 'female',
     bandId: null
@@ -97,7 +97,7 @@ const profileFixtures = {
       'https://open.spotify.com/track/6wpGqhRvJGNNXwWlPmkMyO?si=EezJwK33RneEphYL8faglg'
     ],
     id: 6,
-    instruments: [],
+    roles: ['Singer'],
     age: 49,
     gender: 'male',
     bandId: '8'
@@ -107,14 +107,14 @@ const profileFixtures = {
     genres: ['Pop'],
     description: 'K3 is a Belgian-Dutch girl group with a Dutch repertoire, whose current line-up is composed of Hanne Verbruggen, Marthe De Pillecyn and Klaasje Meijer, mainly aimed at pre-adolescent children.',
     pictureURL: 'https://images-1.schellywood.be/thumbnail/hero-slider-image/1680/char-hero-image.png',
-    location: 'Brussel',
+    location: 'Brussels',
     contactInfo: '',
     recordingURLs: [
       'https://www.youtube.com/watch?v=zZ--w92ASdM',
       'https://www.youtube.com/watch?v=zo7ik2q8_4E'
     ],
     id: 7,
-    wantedInstruments: ['Singer'],
+    wantedRoles: ['Singer'],
   }),
   8: new Band({
     name: 'U2',
@@ -128,7 +128,7 @@ const profileFixtures = {
       'https://open.spotify.com/track/6wpGqhRvJGNNXwWlPmkMyO?si=EezJwK33RneEphYL8faglg'
     ],
     id: 8,
-    wantedInstruments: ['Guitar'],
+    wantedRoles: ['Guitar'],
   }),
   9: new Band({
     name: 'Tame Impala',
@@ -141,7 +141,7 @@ const profileFixtures = {
       'https://www.youtube.com/watch?v=sBzrzS1Ag_g'
     ],
     id: 9,
-    wantedInstruments: ['Bassist'],
+    wantedRoles: ['Bassist'],
   })
 }
 
