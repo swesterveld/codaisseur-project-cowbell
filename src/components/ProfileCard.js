@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class ProfileDetails extends Component {
+class ProfileCard extends Component {
   state = {  }
 
   render() { 
@@ -10,4 +10,4 @@ class ProfileDetails extends Component {
   }
 }
 
-export default ProfileDetails;
+export default ProfileCard;
