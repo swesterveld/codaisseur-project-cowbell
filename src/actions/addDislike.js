@@ -1,8 +1,11 @@
 export const ADD_DISLIKE = 'ADD_DISLIKE';
 
-export function addLike(modelObject) {
+export function addDislike(fromId, toId) {
   return {
     type: ADD_DISLIKE,
-    payload: {...modelObject},
+    payload: {
+      from: fromId,
+      to: toId,
+    }
   }
 }
