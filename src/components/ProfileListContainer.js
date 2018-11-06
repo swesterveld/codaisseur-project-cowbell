@@ -11,7 +11,7 @@ class ProfileListContainer extends Component {
   
   render() {
     return ( <div>
-      <ProfileList profile={this.props.profiles}/>
+      <ProfileList profile={'test'}/>
     </div> );
   }
 }
