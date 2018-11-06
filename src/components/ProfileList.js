@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ProfileCardContainer from './ProfileCardContainer';
+import VotingButtonsContainer from './VotingButtonsContainer';
 
 class ProfileList extends Component {
   state = {  }
@@ -7,8 +8,7 @@ class ProfileList extends Component {
   render() { 
     return ( <div>
       <ProfileCardContainer />
-      <button> like </button>
-      <button> dislike </button>
+      <VotingButtonsContainer />
     </div> );
   }
 }
