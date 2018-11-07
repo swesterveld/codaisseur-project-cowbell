@@ -4,8 +4,8 @@ export function addLike(fromId, toId) {
   return {
     type: ADD_LIKE,
     payload: {
-      from: fromId,
-      to: toId,
+      fromId,
+      toId,
     }
   }
 }

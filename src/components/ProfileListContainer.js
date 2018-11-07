@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import ProfileList from './ProfileList';
 import {updateCandidates} from '../actions/updateCandidates';
-// import {addLike} from '../actions/addLike';
+import {addLike} from '../actions/addLike';
 
 class ProfileListContainer extends Component {
   state = { candidates: [],
@@ -21,6 +21,10 @@ class ProfileListContainer extends Component {
     }
   }
 
+  addLike = (toId) => {
+    this.props.addLike(this.props.currentUserId, toId);
+  }
+
   getNewCandidate = () => {
     if (this.state.candidates[0]) {
       const newCandidateId = this.state.candidates[0] // Kan nog ingewikkelder gemaakt worden natuurlijk
@@ -34,7 +38,7 @@ class ProfileListContainer extends Component {
   
   render() {
     return ( <div>
-      <ProfileList profile={this.state.currentCandidate}/>
+      <ProfileList profile={this.state.currentCandidate} addLike={this.addLike}/>
     </div> );
   }
 }
@@ -47,4 +51,4 @@ const mapStateToProps = (state) => {
 }
 
 // export default ProfileListContainer;
-export default connect(mapStateToProps, {updateCandidates})(ProfileListContainer);
+export default connect(mapStateToProps, {updateCandidates, addLike})(ProfileListContainer);

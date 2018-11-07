@@ -1,9 +1,14 @@
 import React, { Component } from 'react'
 
 class VotingButtons extends Component {
-  render() { 
+  ///Oke maar nu zit dit dus alsnog in de presentational...
+  handleLike = () => {
+    this.props.addLike(this.props.profileId)
+  }
+  
+  render() {
     return ( <div>
-      <button> like </button>
+      <button onClick={this.handleLike}> like </button>
       <button> dislike </button>
     </div> );
   }
