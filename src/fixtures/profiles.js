@@ -153,4 +153,7 @@ const profileFixtures = {
   })
 }
 
+// profileFixtures[7].addDislike(1);
+// profileFixtures[1].addLike(8);
+
 export default profileFixtures;

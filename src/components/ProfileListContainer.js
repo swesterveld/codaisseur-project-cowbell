@@ -34,9 +34,14 @@ class ProfileListContainer extends Component {
 
   getNewCandidate = () => {
     if (this.state.candidates[0]) {
-      const newCandidateId = this.state.candidates[0] // Kan nog ingewikkelder gemaakt worden natuurlijk
-      this.setState({candidates: this.state.candidates.filter((item, index) => index !== 0),
-                     currentCandidate: this.props.profiles[newCandidateId]})
+      const newCandidateIndex = Math.round(Math.random()*(this.state.candidates.length-1));
+      this.setState({
+        candidates: this.state.candidates.filter((item, index) => index !== newCandidateIndex),
+        currentCandidate: this.props.profiles[this.state.candidates[newCandidateIndex]]
+      })
+      // const newCandidateId = this.state.candidates[0] // Kan nog ingewikkelder gemaakt worden natuurlijk
+      // this.setState({candidates: this.state.candidates.filter((item, index) => index !== 0),
+      //                currentCandidate: this.props.profiles[newCandidateId]})
     }
     else {
       this.setState({currentCandidate: null});

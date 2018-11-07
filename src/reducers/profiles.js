@@ -20,12 +20,19 @@ export default (state = profileFixtures, action = {}) => {
 }
 
 function updateCandidates(currentUserId, profiles) {
+  let listOfCandidates = selectByCorrectUsertype(currentUserId, profiles);
+  listOfCandidates = selectByLikesAndDislikes(currentUserId, listOfCandidates, profiles);
+  return listOfCandidates;
+}
+
+function selectByCorrectUsertype(currentUserId, profiles) {
   if (profiles[currentUserId].type === 'musician') {
     return Object.values(profiles)
       .filter(profile => profile.type === 'band')
       .map(profile => profile.id)
   }
-  ///Dit kan flink fout gaan want welke userID wordt gestored?!! In principe van de huidige user toch? Je kan niet zomaar alles namens die ene user doen want dingen moeten wel in de likes van de band gezet worden en dit systeem is 'dom' dus weet niet of de huidige user wel of niet een band heeft. Dus in principe als je inlogt als een user die een band heeft dan meot de currentUserId op het id van zijn/haar band gezet worden
+  // Dit gaat ervanuit dat je dit 'type' nodig hebt en dat de currentUserId op een band gezet wordt als hij een band vertegenwoordigt.
+  // Kan wss ook gedaan worden met checken of huidige user een band heeft etc maar zou veel ingewikkelder zijn.
   else if (profiles[currentUserId].type === 'band') {
     return Object.values(profiles)
       .filter(profile => profile.type === 'musician')
@@ -34,7 +41,18 @@ function updateCandidates(currentUserId, profiles) {
   else throw new Error('Current user-ID is invalid');
 }
 
-// Kan schaalbaar gemaakt worden door op het moment van een like alle 
+function selectByLikesAndDislikes(currentUserId, candidateList, profiles) {
+  return candidateList.filter(candidateId => {
+    if (profiles[currentUserId].likes.includes(candidateId) || 
+        profiles[currentUserId].dislikes.includes(candidateId) ||
+        profiles[candidateId].dislikes.includes(currentUserId)) {
+      return false;
+    }
+    else return true;
+  });
+}
+
+// Kan schaalbaar gemaakt worden door op het moment van een like alle matches te updaten ofzo
 function updateMatches(currentUserId, profiles) {
   return profiles[currentUserId].likes.filter(id => profiles[id].likes.includes(currentUserId))
 }
