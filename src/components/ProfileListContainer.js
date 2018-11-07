@@ -9,14 +9,14 @@ class ProfileListContainer extends Component {
             currentCandidate: null }
   
   componentDidMount() {
-    this.props.updateCandidates(this.props.currentUser.id); // is waarschijnlijk async ofzo
-    this.setState({candidates: this.props.currentUser.candidates});
+    this.props.updateCandidates(this.props.currentUserId); // is waarschijnlijk async ofzo
+    this.setState({candidates: this.props.profiles[this.props.currentUserId].candidates});
   }
 
   componentDidUpdate(oldProps, oldState) {
-    if (oldState.candidates !== this.state.candidates && this.state.candidates.length === this.props.currentUser.candidates.length) {
+    if (oldState.candidates !== this.state.candidates && this.state.candidates.length === this.props.profiles[this.props.currentUserId].candidates.length) {
       console.log('yeey');
-      this.setState({candidates: this.props.currentUser.candidates});
+      this.setState({candidates: this.props.profiles[this.props.currentUserId].candidates});
       this.getNewCandidate(); 
     }
   }
@@ -43,7 +43,7 @@ class ProfileListContainer extends Component {
 const mapStateToProps = (state) => {
   return {
     profiles: state.profiles,
-    currentUser: state.currentUser,
+    currentUserId: state.currentUserId,
   }
 }
 
