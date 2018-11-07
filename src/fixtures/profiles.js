@@ -1,11 +1,34 @@
 import {Musician, Band} from '../Profile';
 
 function makeMusician(object={}) {
-  return new Musician(object.id, object.name, object.genres, object.description, object.pictureURL, object.location, object.contactInfo, object.recordingURLs, object.roles, object.age, object.gender, object.bandId)
+  return new Musician(
+    object.id,
+    object.name,
+    object.contactInfo,
+    object.description,
+    object.genres,
+    object.location,
+    object.pictureURL,
+    object.recordingURLs,
+    object.age,
+    object.bandId,
+    object.gender,
+    object.roles
+  )
 }
 
 function makeBand(object={}) {
-  return new Band(object.id, object.name, object.genres, object.description, object.pictureURL, object.location, object.contactInfo, object.recordingURLs, object.wantedRoles)
+  return new Band(
+    object.id,
+    object.name,
+    object.contactInfo,
+    object.description,
+    object.genres,
+    object.location,
+    object.pictureURL,
+    object.recordingURLs,
+    object.wantedRoles
+  )
 }
 
 const profileFixtures = {
