@@ -6,7 +6,9 @@ class ProfileBrowser extends Component {
   render() {
     return ( <div>
       <ProfileCardContainer profile={this.props.profile} showContactDetails={false} />
-      <VotingButtonsContainer addLike={this.props.addLike} addDislike={this.props.addDislike} profileId={this.props.profile ? this.props.profile.id : null} />
+      {this.props.profile && <VotingButtonsContainer addLike={this.props.addLike} 
+                                                     addDislike={this.props.addDislike} 
+                                                     profileId={this.props.profile ? this.props.profile.id : null} />}
     </div> );
   }
 }

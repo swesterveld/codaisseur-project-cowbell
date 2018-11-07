@@ -23,13 +23,17 @@ class ProfileBrowserContainer extends Component {
   }
 
   addLike = (toId) => {
-    this.props.addLike(this.props.currentUserId, toId);
-    this.getNewCandidate();
+    if (this.state.currentCandidate) {
+      this.props.addLike(this.props.currentUserId, toId);
+      this.getNewCandidate();
+    }
   }
 
   addDislike = (toId) => {
-    this.props.addDislike(this.props.currentUserId, toId);
-    this.getNewCandidate();
+    if (this.state.currentCandidate) {
+      this.props.addDislike(this.props.currentUserId, toId);
+      this.getNewCandidate();
+    }
   }
 
   getNewCandidate = () => {
