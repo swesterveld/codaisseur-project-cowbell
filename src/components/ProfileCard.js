@@ -23,13 +23,14 @@ class ProfileCard extends Component {
 
   extractPlatform(url) {
     const platforms = [
-      'YouTube',
+      'Discogs',
+      'SoundCloud',
       'Spotify',
-      'Discogs'
+      'YouTube'
     ]
 
     return platforms.find(p => {
-      return url.includes(p.toLowerCase())
+      return url.replace('.','').includes(p.toLowerCase()) // replace() for domains like youtu.be
     })
   }
 
@@ -40,7 +41,7 @@ class ProfileCard extends Component {
         <ul>
           { this.props.profile.recordingURLs.map((item) => {
             let platform = this.extractPlatform(item)
-            return <li className={`${platform.toLowerCase()}-url`} key={item}><a href={item}>{this.extractPlatform(item)}</a></li>
+            return <li className={`${platform.toLowerCase()}-url`} key={item}><a href={item}>{platform}</a></li>
           })}
         </ul>
       </div>
