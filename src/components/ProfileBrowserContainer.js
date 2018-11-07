@@ -43,7 +43,7 @@ class ProfileBrowserContainer extends Component {
         candidates: this.state.candidates.filter((item, index) => index !== newCandidateIndex),
         currentCandidate: this.props.profiles[this.state.candidates[newCandidateIndex]]
       })
-      // const newCandidateId = this.state.candidates[0] // Kan nog ingewikkelder gemaakt worden natuurlijk
+      // const newCandidateId = this.state.candidates[0]
       // this.setState({candidates: this.state.candidates.filter((item, index) => index !== 0),
       //                currentCandidate: this.props.profiles[newCandidateId]})
     }
@@ -54,7 +54,7 @@ class ProfileBrowserContainer extends Component {
   
   render() {
     return ( <div>
-      <ProfileBrowser profile={this.state.currentCandidate} addLike={this.addLike} addDislike={this.addDislike} />
+      <ProfileBrowser profile={this.state.currentCandidate} addLike={this.addLike} addDislike={this.addDislike} match={this.props.match} />
     </div> );
   }
 }

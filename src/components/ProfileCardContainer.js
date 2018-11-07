@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ProfileCard from './ProfileCard';
 
-class ProfileCardsContainer extends Component {
+class ProfileCardContainer extends Component {
   state = {  }
 
   render() { 
@@ -11,4 +11,4 @@ class ProfileCardsContainer extends Component {
   }
 }
 
-export default ProfileCardsContainer;
+export default ProfileCardContainer;
