@@ -24,10 +24,11 @@ class Profile {
     this.pictureURL = pictureURL;
     this.recordingURLs = recordingURLs;
 
-    this.candidates = []  // id's of profiles that have been recommended by the system
-    this.dislikes = []    // id's of profiles that have been disliked by the current profile
-    this.likes = [];      // id's of profiles that have been liked by the current profile
-    this.matches = []     // id's of profiles that have been liked from both sides
+    this.candidates = [];  // id's of profiles that have been recommended by the system
+    this.dislikes = [];    // id's of profiles that have been disliked by the current profile
+    this.likes = [];       // id's of profiles that have been liked by the current profile
+    this.matches = [];     // id's of profiles that have been liked from both sides
+    this.filters = [];
   }
 
   static genres = () => {
@@ -64,6 +65,17 @@ class Profile {
 
   addLike = (toId) => {
     this.likes.push(toId);
+  }
+
+  addDislike = (toId) => {
+    this.dislikes.push(toId);
+  }
+
+  // Als we dit willen integreren in de settings enzo moet er een ADD_FILTER action komen en moet dat via de reducer gestufft kunnen worden
+  addFilter = (filterName, filterFunction) => {
+    // filterFunction should accept a certain property of a profile (e.g. `age` which the number 21 is assigned to) and 
+    // return `true` if the object satisfies the criteria (and `false` otherwise)
+    this.filters.push([filterName, filterFunction])
   }
 }
 
