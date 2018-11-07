@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ProfileCardContainer from './ProfileCardContainer';
 import VotingButtonsContainer from './VotingButtonsContainer';
 
-class ProfileList extends Component {
+class ProfileBrowser extends Component {
   render() {
     return ( <div>
       <ProfileCardContainer profile={this.props.profile} showContactDetails={false} />
@@ -11,4 +11,4 @@ class ProfileList extends Component {
   }
 }
 
-export default ProfileList;
+export default ProfileBrowser;

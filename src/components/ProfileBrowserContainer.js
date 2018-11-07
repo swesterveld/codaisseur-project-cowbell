@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import ProfileList from './ProfileList';
+import ProfileBrowser from './ProfileBrowser';
 import {updateCandidates} from '../actions/updateCandidates';
 import {addLike} from '../actions/addLike';
 import {addDislike} from '../actions/addDislike'
 
-class ProfileListContainer extends Component {
+class ProfileBrowserContainer extends Component {
   state = { candidates: [],
             currentCandidate: null }
   
@@ -50,7 +50,7 @@ class ProfileListContainer extends Component {
   
   render() {
     return ( <div>
-      <ProfileList profile={this.state.currentCandidate} addLike={this.addLike} addDislike={this.addDislike} />
+      <ProfileBrowser profile={this.state.currentCandidate} addLike={this.addLike} addDislike={this.addDislike} />
     </div> );
   }
 }
@@ -62,5 +62,5 @@ const mapStateToProps = (state) => {
   }
 }
 
-// export default ProfileListContainer;
-export default connect(mapStateToProps, {updateCandidates, addLike, addDislike})(ProfileListContainer);
+// export default ProfileBrowserContainer;
+export default connect(mapStateToProps, {updateCandidates, addLike, addDislike})(ProfileBrowserContainer);
