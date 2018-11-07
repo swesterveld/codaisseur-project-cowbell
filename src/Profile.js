@@ -61,6 +61,10 @@ class Profile {
   addLike = (toId) => {
     this.likes.push(toId);
   }
+
+  addDislike = (toId) => {
+    this.dislikes.push(toId);
+  }
 }
 
 class Musician extends Profile {
