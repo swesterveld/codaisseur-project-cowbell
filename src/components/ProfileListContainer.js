@@ -1,17 +1,40 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import ProfileList from './ProfileList';
+import {updateCandidates} from '../actions/updateCandidates';
 // import {addLike} from '../actions/addLike';
 
 class ProfileListContainer extends Component {
-  state = {  }
+  state = { candidates: [],
+            currentCandidate: null }
+  
   componentDidMount() {
-    updateCandidates();
+    this.props.updateCandidates(this.props.currentUserId);
+    this.setState({candidates: this.props.profiles[this.props.currentUserId].candidates});
+  }
+
+  componentDidUpdate(oldProps, oldState) {
+    // Does the state-setting again because this.props.updateCandidates seems to be async, so at the time of componentDidMount() this.state is still empty
+    if (oldState.candidates !== this.state.candidates && this.state.candidates.length === this.props.profiles[this.props.currentUserId].candidates.length) {
+      this.setState({candidates: this.props.profiles[this.props.currentUserId].candidates});
+      this.getNewCandidate(); 
+    }
+  }
+
+  getNewCandidate = () => {
+    if (this.state.candidates[0]) {
+      const newCandidateId = this.state.candidates[0] // Kan nog ingewikkelder gemaakt worden natuurlijk
+      this.setState({candidates: this.state.candidates.filter((item, index) => index !== 0)})
+      this.setState({currentCandidate: this.props.profiles[newCandidateId]});
+    }
+    else {
+      this.setState({currentCandidate: null});
+    }
   }
   
   render() {
     return ( <div>
-      <ProfileList profile={this.props.profiles}/>
+      <ProfileList profile={this.state.currentCandidate}/>
     </div> );
   }
 }
@@ -19,14 +42,9 @@ class ProfileListContainer extends Component {
 const mapStateToProps = (state) => {
   return {
     profiles: state.profiles,
-    currentProfile: state.currentUser,
-    candidates: state.candidates,
+    currentUserId: state.currentUserId,
   }
 }
 
-const updateCandidates = () => {
-  return;
-}
-
 // export default ProfileListContainer;
-export default connect(mapStateToProps, null)(ProfileListContainer);
+export default connect(mapStateToProps, {updateCandidates})(ProfileListContainer);

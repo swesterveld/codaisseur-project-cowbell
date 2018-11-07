@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import ProfileCardContainer from './ProfileCardContainer';
+import VotingButtonsContainer from './VotingButtonsContainer';
 
 class ProfileList extends Component {
-  state = {  }
 
   render() { 
     return ( <div>
-      <ProfileCardContainer />
-      <button> like </button>
-      <button> dislike </button>
+      <ProfileCardContainer profile={this.props.profile} />
+      <VotingButtonsContainer />
     </div> );
   }
 }
