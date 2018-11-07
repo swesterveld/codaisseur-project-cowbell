@@ -7,7 +7,7 @@ class ProfileList extends Component {
 
   render() { 
     return ( <div>
-      <ProfileCardContainer />
+      <ProfileCardContainer profile={this.props.profile} />
       <VotingButtonsContainer />
     </div> );
   }

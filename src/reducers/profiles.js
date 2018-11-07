@@ -8,10 +8,10 @@ export default (state = profileFixtures, action = {}) => {
     case 'ADD_DISLIKE':
       return state;
     case 'UPDATE_CANDIDATES':
-      state[action.payload.currentUser.id].candidates = updateCandidates(action.payload.currentUser.id, state);
+      state[action.payload.currentUserId].candidates = updateCandidates(action.payload.currentUserId, state);
       return state;
     case 'UPDATE_MATCHES':
-      state[action.payload.currentUser.id].matches = updateMatches(action.payload.currentUser.id, state);
+      state[action.payload.currentUserId].matches = updateMatches(action.payload.currentUserId, state);
       return state;
     default:
       return state;
@@ -24,6 +24,7 @@ function updateCandidates(currentUserId, profiles) {
       .filter(profile => profile.type === 'band')
       .map(profile => profile.id)
   }
+  ///Dit kan flink fout gaan want welke userID wordt gestored?!! In principe van de huidige user toch? Je kan niet zomaar alles namens die ene user doen want dingen moeten wel in de likes van de band gezet worden en dit systeem is 'dom' dus weet niet of de huidige user wel of niet een band heeft. Dus in principe als je inlogt als een user die een band heeft dan meot de currentUserId op het id van zijn/haar band gezet worden
   else if (profiles[currentUserId].type === 'band') {
     return Object.values(profiles)
       .filter(profile => profile.type === 'musician')
