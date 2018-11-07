@@ -1,4 +1,4 @@
-# Project Cowbell
+# Project Cowbells
 
 Cowbell is the working title of the project we've been working on during Codaisseur Academy's 1st project week.
 The assignment was to collaborate in a team to design and build a Tinder-like web-app with React and Redux.
