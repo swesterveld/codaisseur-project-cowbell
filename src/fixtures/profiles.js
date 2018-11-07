@@ -155,5 +155,6 @@ const profileFixtures = {
 
 // profileFixtures[7].addDislike(1);
 // profileFixtures[1].addLike(8);
+// profileFixtures[1].addFilter('genres', genres => genres.includes('Rock'))
 
 export default profileFixtures;

@@ -22,6 +22,7 @@ export default (state = profileFixtures, action = {}) => {
 function updateCandidates(currentUserId, profiles) {
   let listOfCandidates = selectByCorrectUsertype(currentUserId, profiles);
   listOfCandidates = selectByLikesAndDislikes(currentUserId, listOfCandidates, profiles);
+  listOfCandidates = selectByUserFilters(currentUserId, listOfCandidates, profiles);
   return listOfCandidates;
 }
 
@@ -50,6 +51,25 @@ function selectByLikesAndDislikes(currentUserId, candidateList, profiles) {
     }
     else return true;
   });
+}
+
+function selectByUserFilters(currentUserId, candidateList, profiles) {
+  let filteredCandidates = candidateList;
+  profiles[currentUserId].filters.forEach(filterNamePlusFunction => { /// Zou kunnen met reduce I guess
+    filteredCandidates = filteredCandidates.filter(candidateId => {
+      // Check if the property to filter on exists
+      console.log(profiles)
+      console.log(profiles[candidateId].genres);
+      if (profiles[candidateId][filterNamePlusFunction[0]]) {
+        // Run the function defined in the current filter of the current user
+        console.log('yee');
+        console.log(filterNamePlusFunction[1]);
+        return filterNamePlusFunction[1](profiles[candidateId][filterNamePlusFunction[0]]);
+      }
+      else return true;
+    });
+  });
+  return filteredCandidates;
 }
 
 // Kan schaalbaar gemaakt worden door op het moment van een like alle matches te updaten ofzo

@@ -21,9 +21,10 @@ class Profile {
     this.recordingURLs = recordingURLs;
 
     this.likes = [];
-    this.dislikes = []
-    this.candidates = []
-    this.matches = []
+    this.dislikes = [];
+    this.candidates = [];
+    this.matches = [];
+    this.filters= [];
   }
 
   static genres = () => {
@@ -65,6 +66,13 @@ class Profile {
   addDislike = (toId) => {
     this.dislikes.push(toId);
   }
+
+  // Als we dit willen integreren in de settings enzo moet er een ADD_FILTER action komen en moet dat via de reducer gestufft kunnen worden
+  addFilter = (filterName, filterFunction) => {
+    // filterFunction should accept a certain property of a profile (e.g. `age` which the number 21 is assigned to) and 
+    // return `true` if the object satisfies the criteria (and `false` otherwise)
+    this.filters.push([filterName, filterFunction])
+  }
 }
 
 class Musician extends Profile {
@@ -86,11 +94,11 @@ class Musician extends Profile {
       id,
       'musician',
       name,
-      contactInfo,
-      description,
       genres,
-      location,
+      description,
       pictureURL,
+      location,
+      contactInfo,
       recordingURLs,
     );
     this.roles = roles;
@@ -116,11 +124,11 @@ class Band extends Profile {
       id,
       'band',
       name,
-      contactInfo,
-      description,
       genres,
-      location,
+      description,
       pictureURL,
+      location,
+      contactInfo,
       recordingURLs,
     );
     this.wantedRoles = wantedRoles;
