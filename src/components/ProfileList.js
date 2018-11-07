@@ -3,7 +3,6 @@ import ProfileCardContainer from './ProfileCardContainer';
 import VotingButtonsContainer from './VotingButtonsContainer';
 
 class ProfileList extends Component {
-  state = {  }
 
   render() { 
     return ( <div>

@@ -9,19 +9,18 @@ class ProfileListContainer extends Component {
             currentCandidate: null }
   
   componentDidMount() {
-    this.props.updateCandidates(this.props.currentUserId); // is waarschijnlijk async ofzo
+    this.props.updateCandidates(this.props.currentUserId);
     this.setState({candidates: this.props.profiles[this.props.currentUserId].candidates});
   }
 
   componentDidUpdate(oldProps, oldState) {
+    // Does the state-setting again because this.props.updateCandidates seems to be async, so at the time of componentDidMount() this.state is still empty
     if (oldState.candidates !== this.state.candidates && this.state.candidates.length === this.props.profiles[this.props.currentUserId].candidates.length) {
-      console.log('yeey');
       this.setState({candidates: this.props.profiles[this.props.currentUserId].candidates});
       this.getNewCandidate(); 
     }
   }
 
-  /// Al dit candidate-spul maakt het ProfileListContainer-ding wel minder 'flexibel inzetbaar'...
   getNewCandidate = () => {
     if (this.state.candidates[0]) {
       const newCandidateId = this.state.candidates[0] // Kan nog ingewikkelder gemaakt worden natuurlijk

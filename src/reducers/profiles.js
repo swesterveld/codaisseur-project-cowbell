@@ -33,6 +33,7 @@ function updateCandidates(currentUserId, profiles) {
   else throw new Error('Current user-ID is invalid');
 }
 
+// Kan schaalbaar gemaakt worden door op het moment van een like alle 
 function updateMatches(currentUserId, profiles) {
   return profiles[currentUserId].likes.filter(id => profiles[id].likes.includes(currentUserId))
 }
