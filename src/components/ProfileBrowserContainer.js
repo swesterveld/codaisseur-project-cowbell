@@ -54,7 +54,7 @@ class ProfileBrowserContainer extends Component {
   
   render() {
     return ( <div>
-      <ProfileBrowser profile={this.state.currentCandidate} addLike={this.addLike} addDislike={this.addDislike} />
+      <ProfileBrowser profile={this.state.currentCandidate} addLike={this.addLike} addDislike={this.addDislike} match={this.props.match} />
     </div> );
   }
 }
