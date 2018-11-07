@@ -21,13 +21,26 @@ class ProfileCard extends Component {
     )
   }
 
+  extractPlatform(url) {
+    const platforms = [
+      'YouTube',
+      'Spotify',
+      'Discogs'
+    ]
+
+    return platforms.find(p => {
+      return url.includes(p.toLowerCase())
+    })
+  }
+
   renderMediaURLs() {
     return (
       <div>
         <h2>Media</h2>
         <ul>
-          {this.props.profile.recordingURLs.map((item,index) => {
-            return <li><a href={item}>link {index+1}</a></li>
+          { this.props.profile.recordingURLs.map((item) => {
+            let platform = this.extractPlatform(item)
+            return <li className={`${platform.toLowerCase()}-url`} key={item}><a href={item}>{this.extractPlatform(item)}</a></li>
           })}
         </ul>
       </div>
