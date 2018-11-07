@@ -24,7 +24,7 @@ class Profile {
     this.dislikes = [];
     this.candidates = [];
     this.matches = [];
-    this.filters= [];
+    this.filters = [];
   }
 
   static genres = () => {
