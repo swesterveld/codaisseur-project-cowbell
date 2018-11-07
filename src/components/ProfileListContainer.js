@@ -23,13 +23,14 @@ class ProfileListContainer extends Component {
 
   addLike = (toId) => {
     this.props.addLike(this.props.currentUserId, toId);
+    this.getNewCandidate();
   }
 
   getNewCandidate = () => {
     if (this.state.candidates[0]) {
       const newCandidateId = this.state.candidates[0] // Kan nog ingewikkelder gemaakt worden natuurlijk
-      this.setState({candidates: this.state.candidates.filter((item, index) => index !== 0)})
-      this.setState({currentCandidate: this.props.profiles[newCandidateId]});
+      this.setState({candidates: this.state.candidates.filter((item, index) => index !== 0),
+                     currentCandidate: this.props.profiles[newCandidateId]})
     }
     else {
       this.setState({currentCandidate: null});

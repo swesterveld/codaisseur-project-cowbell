@@ -3,10 +3,10 @@ import profileFixtures from '../fixtures/profiles';
 export default (state = profileFixtures, action = {}) => {
   switch (action.type) {
     case 'ADD_LIKE':
-      console.log(state[action.payload.fromId])
       state[action.payload.fromId].addLike(action.payload.toId);
       return state;
     case 'ADD_DISLIKE':
+      state[action.payload.fromId].addDislike(action.payload.toId);
       return state;
     case 'UPDATE_CANDIDATES':
       state[action.payload.currentUserId].candidates = updateCandidates(action.payload.currentUserId, state);

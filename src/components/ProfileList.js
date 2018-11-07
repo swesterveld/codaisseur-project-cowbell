@@ -5,7 +5,7 @@ import VotingButtonsContainer from './VotingButtonsContainer';
 class ProfileList extends Component {
   render() {
     return ( <div>
-      <ProfileCardContainer profile={this.props.profile} />
+      <ProfileCardContainer profile={this.props.profile} showContactDetails={false} />
       <VotingButtonsContainer addLike={this.props.addLike} profileId={this.props.profile ? this.props.profile.id : null} />
     </div> );
   }

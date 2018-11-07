@@ -3,8 +3,12 @@ import VotingButtons from './VotingButtons';
 
 class VotingButtonsContainer extends Component {
   state = {  }
+  handleLike = () => {
+    this.props.addLike(this.props.profileId)
+  }
+  
   render() {
-    return ( <VotingButtons addLike={this.props.addLike} profileId={this.props.profileId} /> );
+    return ( <VotingButtons handleLike={this.handleLike} /> );
   }
 }
  
