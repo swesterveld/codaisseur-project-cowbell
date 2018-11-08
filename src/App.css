@@ -15,6 +15,9 @@
     --pineapple: #56335C;
     --verdigris: #41A7B3;
     --light-blue: #A5D7DA;
+    --regular: 400;
+    --semi-bold: 600;
+    --bold: 700;
 }
 
 body {
