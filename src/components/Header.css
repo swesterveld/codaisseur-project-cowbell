@@ -1,34 +1,32 @@
-.header-container {
-    /* left: 15px top: 25px */
+#header-container {
     display: flex;
     flex-direction: row;
-    /*justify-content: center;*/
     justify-content: space-between;
     align-items: flex-end;
     margin-left: 25px;
-    margin-top: 15px;
+    height: 75px;
     width: 310px;
-    /*place-content: baseline center;*/
-    /*align-items: center;*/
 
 }
 
-.header-container > .bt-menu-settings {
+.header-item {
+    display: block;
     flex: auto;
+}
+
+#header-bt-settings {
     height: 40px;
     width: 40px;
-    flex-direction: row;
-    justify-content: flex-end;
+    margin-bottom: 5px;
 }
 
-.header-container > .bt-menu-profiles {
-    flex: auto;
+#header-bt-profiles {
     height: 60px;
     width: 60px;
 }
 
-.header-container > .bt-menu-matches {
-    flex: auto;
+#header-bt-matches {
     height: 40px;
     width: 40px;
+    margin-bottom: 5px;
 }
