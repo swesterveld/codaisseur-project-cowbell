@@ -37,10 +37,18 @@ class ProfileCard extends Component {
   }
 
   renderChips(items, cssClass='chip') {
-    let listItems = items.splice(MAX_CHIPS)
-    listItems.map(item => {
-      { return <li className={cssClass}>{item}</li> }
-    })
+    let listItems = JSON.parse(JSON.stringify(items))
+    listItems.splice(MAX_CHIPS)
+
+    return (
+      <ul>
+      {
+        listItems.map(item => {
+          return <li key={item} className={cssClass}>{item}</li>
+        })
+      }
+      </ul>
+    )
   }
 
   renderMediaURLs() {
@@ -61,12 +69,8 @@ class ProfileCard extends Component {
     return (
       <div>
         <h2>Description</h2>
-        <p>
-        <ul>
-          { this.renderChips(this.props.profile.genres) }
-          { this.props.profile.type === 'musician' ? this.renderChips(this.props.profile.roles) : this.renderChips(this.props.profile.wantedRoles ) }
-        </ul>
-        </p>
+          { this.renderChips(this.props.profile.genres, "genre-chip") }
+          { this.props.profile.type === 'musician' ? this.renderChips(this.props.profile.roles) : this.renderChips(this.props.profile.wantedRoles) }
         <p>{this.props.profile.description}</p>
       </div>
     )
