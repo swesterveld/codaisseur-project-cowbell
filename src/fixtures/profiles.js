@@ -151,7 +151,7 @@ const profileFixtures = {
     name: 'U2',
     genres: ['Pop', 'Rock'],
     description: 'U2 are an Irish rock band from Dublin formed in 1976. The group consists of Bono, the Edge, Adam Clayton, and Larry Mullen Jr.',
-    pictureURL: 'https://www.u2.com/news/title/the-joshua-tree-tour-2017',
+    pictureURL: 'https://www.satelitemusical.net/sitebuilder/images/u2-2014-336x336.jpg',
     location: 'Amsterdam',
     contactInfo: '',
     recordingURLs: [
