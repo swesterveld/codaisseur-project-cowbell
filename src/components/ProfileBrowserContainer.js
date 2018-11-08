@@ -2,12 +2,17 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import ProfileBrowser from './ProfileBrowser';
 import {updateCandidates} from '../actions/updateCandidates';
+import {updateMatches} from '../actions/updateMatches';
 import {addLike} from '../actions/addLike';
-import {addDislike} from '../actions/addDislike'
+import {addDislike} from '../actions/addDislike';
+import MatchPopup from './MatchPopup';
+import './ProfileBrowserContainer.css';
 
 class ProfileBrowserContainer extends Component {
   state = { candidates: [],
-            currentCandidate: null }
+            currentCandidate: null,
+            // previousCandidate: null,
+            popupCandidate: null, }
   
   componentDidMount() {
     this.props.updateCandidates(this.props.currentUserId);
@@ -25,6 +30,10 @@ class ProfileBrowserContainer extends Component {
   addLike = (toId) => {
     if (this.state.currentCandidate) {
       this.props.addLike(this.props.currentUserId, toId);
+      if (this.state.currentCandidate.likes.includes(this.props.currentUserId)) {
+        this.setState({popupCandidate: this.state.currentCandidate});
+      }
+      // this.props.updateMatches(this.props.currentUserId);
       this.getNewCandidate();
     }
   }
@@ -36,16 +45,18 @@ class ProfileBrowserContainer extends Component {
     }
   }
 
+  keepSearching = () => {
+    this.setState({popupCandidate: null})
+  }
+
   getNewCandidate = () => {
     if (this.state.candidates[0]) {
       const newCandidateIndex = Math.round(Math.random()*(this.state.candidates.length-1));
       this.setState({
         candidates: this.state.candidates.filter((item, index) => index !== newCandidateIndex),
+        // previousCandidate: this.state.currentCandidate,
         currentCandidate: this.props.profiles[this.state.candidates[newCandidateIndex]]
       })
-      // const newCandidateId = this.state.candidates[0]
-      // this.setState({candidates: this.state.candidates.filter((item, index) => index !== 0),
-      //                currentCandidate: this.props.profiles[newCandidateId]})
     }
     else {
       this.setState({currentCandidate: null});
@@ -54,7 +65,14 @@ class ProfileBrowserContainer extends Component {
   
   render() {
     return ( <div>
-      <ProfileBrowser profile={this.state.currentCandidate} addLike={this.addLike} addDislike={this.addDislike} match={this.props.match} />
+      {!this.state.popupCandidate && <ProfileBrowser profile={this.state.currentCandidate} 
+                                                     addLike={this.addLike} 
+                                                     addDislike={this.addDislike} 
+                                                     match={this.props.match} 
+                                                     currentProfile={this.props.profiles[this.props.currentUserId]} />}
+      {this.state.popupCandidate && <MatchPopup currentProfile={this.props.profiles[this.props.currentUserId]} 
+                                                matchedProfile={this.state.popupCandidate} 
+                                                keepSearching={this.keepSearching} />}
     </div> );
   }
 }
@@ -67,4 +85,4 @@ const mapStateToProps = (state) => {
 }
 
 // export default ProfileBrowserContainer;
-export default connect(mapStateToProps, {updateCandidates, addLike, addDislike})(ProfileBrowserContainer);
+export default connect(mapStateToProps, {updateCandidates, updateMatches, addLike, addDislike})(ProfileBrowserContainer);

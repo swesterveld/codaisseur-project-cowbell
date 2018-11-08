@@ -184,7 +184,7 @@ const profileFixtures = {
 // profileFixtures[1].addLike(7);
 // profileFixtures[1].addLike(8);
 // profileFixtures[1].addLike(9);
-// profileFixtures[7].addLike(1);
+profileFixtures[7].addLike(1);
 // profileFixtures[8].addLike(1);
 
 export default profileFixtures;
