@@ -4,6 +4,9 @@ export const MAX_CHIPS = 2
 export const MEDIA_HEIGHT = 300
 export const MEDIA_WIDTH = 400
 
+// Dit dan veranderd worden naar de links naar de svg's ofzo
+const CONTACT_MEDIA = ['telephone', 'messenger', 'whatsapp', 'email']
+
 class ProfileCard extends Component {
 
   renderProfilePicture() {
@@ -16,13 +19,28 @@ class ProfileCard extends Component {
     )
   }
 
-  renderContent() {
-    return (
+  renderSwitchButtons() {
+    return ( 
       <div>
-        {this.renderDescription()}
-        {this.renderMediaURLs()}
-      </div>
+        <button onClick={this.props.switchToContent}>Description</button>
+        <button onClick={this.props.switchToMedia}>Media</button>
+      </div> 
     )
+  }
+
+  renderContent() {
+    if (this.props.content) {
+      return ( <div>
+        {this.renderDescription()}
+        {this.props.showContactDetails && this.renderContactDetails()}
+      </div> )
+    }
+    else {
+      return ( <div>
+        {this.renderMediaURLs()}
+      </div> )
+    }
+    
   }
 
   extractPlatform(url) {
@@ -95,7 +113,19 @@ class ProfileCard extends Component {
     )
   }
 
-  render() { 
+  renderContactDetails() {
+    let contactDetails = {...this.props.profile.contactInfo};
+    console.log(this.props.profile);
+    return (
+      <div>
+        {CONTACT_MEDIA
+          .filter(medium => Boolean(contactDetails[medium]))
+          .map(medium => <a key={medium} href={contactDetails[medium]}> {medium} </a>)}
+      </div>
+    )
+  }
+
+  render() {
     if (!this.props.profile) {
       return (
         <p>No profiles available.</p>
@@ -104,8 +134,9 @@ class ProfileCard extends Component {
     else {
       return (
         <div>
-        {this.renderProfilePicture()}
-        {this.renderContent()}
+          {this.renderProfilePicture()}
+          {this.renderSwitchButtons()}
+          {this.renderContent()}
         </div>
       )
     }
