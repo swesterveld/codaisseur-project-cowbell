@@ -14,6 +14,12 @@ export default (state = profileFixtures, action = {}) => {
     case 'UPDATE_MATCHES':
       state[action.payload.currentUserId].matches = updateMatches(action.payload.currentUserId, state);
       return state;
+    case 'ADD_FILTER':
+      state[action.payload.currentUserId].addFilter(action.payload.filterName, action.payload.filterFunction, action.payload.extraArgument);
+      return state;
+    case 'REMOVE_FILTER':
+      state[action.payload.currentUserId].removeFilter(action.payload.filterName, action.payload.filterFunction, action.payload.extraArgument);
+      return state;
     default:
       return state;
   }

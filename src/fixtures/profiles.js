@@ -178,7 +178,7 @@ const profileFixtures = {
 
 // profileFixtures[7].addDislike(1);
 // profileFixtures[1].addLike(8);
-// profileFixtures[1].addFilter('genres', genres => genres.includes('Rock'))
+profileFixtures[1].addFilter('genres', genres => genres.includes('Rock'))
 
 //// For testing matches list: you can (un)comment whichever you like to experiment
 // profileFixtures[1].addLike(7);
