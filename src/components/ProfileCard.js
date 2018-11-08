@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './ProfileCard.css'
 
 export const MAX_CHIPS = 2
 export const MEDIA_HEIGHT = 300
@@ -11,10 +12,14 @@ class ProfileCard extends Component {
 
   renderProfilePicture() {
     return (
-      <div>
-        <img src={this.props.profile.pictureURL} alt={this.props.profile.name}/>
-        <p>{this.props.profile.name}, {this.props.profile.age}</p>
-        <p>{this.props.profile.location}</p>
+      <div id={"cover"}>
+        <div>
+          <img id={"cover-photo"} src={this.props.profile.pictureURL} alt={this.props.profile.name}/>
+        </div>
+        <div id={"cover-tag"}>
+          <div id={"tag-name"}>{this.props.profile.name}, {this.props.profile.age}</div>
+          <div id={"tag-location"}>{this.props.profile.location}</div>
+        </div>
       </div>
     )
   }

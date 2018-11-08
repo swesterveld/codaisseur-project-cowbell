@@ -1,0 +1,47 @@
+#cover {
+}
+
+#cover-photo {
+    display: flex;
+    height: 215px;
+    width: 215px;
+    margin-top: 35px;
+    margin-left: 72px;
+    object-fit: contain;
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+    border: 4px solid white;
+}
+
+#cover-tag {
+    display: block;
+    width: 128px;
+    /*height: 58px;*/
+    margin-top: -29px;
+    padding-left: 116px;
+    /*z-index: 2;*/
+}
+
+#cover-tag > #tag-name {
+    display: flex;
+    background-color: var(--light-blue);
+    border-radius: 10px 10px 0 0;
+    color: white;
+    height: 29px;
+    /*align-content: center;*/
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: var(--semi-bold);
+    justify-content: center;
+}
+
+#cover-tag > #tag-location {
+    display: flex;
+    background-color: white;
+    border-radius: 0 0 10px 10px;
+    height: 29px;
+    /*align-content: center;*/
+    justify-content: center;
+    font-size: 13px;
+    line-height: 16px;
+}
