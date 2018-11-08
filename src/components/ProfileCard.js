@@ -39,9 +39,9 @@ class ProfileCard extends Component {
       <div>
         <h2>Media</h2>
         <ul>
-          { this.props.profile.recordingURLs.map((item) => {
-            let platform = this.extractPlatform(item)
-            return <li className={`${platform.toLowerCase()}-url`} key={item}><a href={item}>{platform}</a></li>
+          { this.props.profile.recordingURLs.map((url) => {
+            let platform = this.extractPlatform(url)
+            return <li className={`${platform.toLowerCase()}-url`} key={url}><a href={url}>{platform}</a></li>
           })}
         </ul>
       </div>
