@@ -14,5 +14,5 @@ class Settings extends Component {
     </div> );
   }
 }
- 
+
 export default Settings;
