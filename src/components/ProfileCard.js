@@ -15,10 +15,10 @@ class ProfileCard extends Component {
       <div id={"cover"}>
         <div>
           <img id={"cover-photo"} src={this.props.profile.pictureURL} alt={this.props.profile.name}/>
-        </div>
-        <div id={"cover-tag"}>
-          <div id={"tag-name"}>{this.props.profile.name}, {this.props.profile.age}</div>
-          <div id={"tag-location"}>{this.props.profile.location}</div>
+          <div id={"cover-tag"}>
+            <div id={"tag-name"}>{this.props.profile.name}, {this.props.profile.age}</div>
+            <div id={"tag-location"}>{this.props.profile.location}</div>
+          </div>
         </div>
       </div>
     )
