@@ -17,7 +17,7 @@ class Profile {
     this.id = id;
     this.type = type;
     this.name = name;
-    this.contactInfo = {...contactInfo};
+    this.contactInfo = Profile.formatContactInfo(contactInfo);
     this.description = description;
     this.genres = genres;
     this.location = location;
@@ -64,24 +64,25 @@ class Profile {
   }
 
   static formatContactInfo = (contactInfo) => {
-    Object.entries(contactInfo).map(keyValue => {
-      switch (contactInfo[keyValue[0]]) {
+    const contactInfoArray = Object.entries(contactInfo).map(keyValue => {
+      switch (keyValue[0]) {
         // Format: `0652795462`
         case 'telephone':
-          return `tel:${keyValue[1]}`;
+          return ['telephone', `tel:${keyValue[1]}`];
         // Format: `jiri.sven`
         case 'messenger':
-          return `http://m.me/${keyValue[1]}`;
+          return ['messenger', `http://m.me/${keyValue[1]}`];
         // Format: `31652795462`
         case 'whatsapp':
-          return `http://wa.me/${keyValue[1]}`;
+          return ['whatsapp', `http://wa.me/${keyValue[1]}`];
         // Format: jiri.ey@hotmail.com
         case 'email':
-          return `mailto:${keyValue[1]}`;
+          return ['email', `mailto:${keyValue[1]}`];
         default:
           return null;
       }
     })
+    return contactInfoArray.reduce((acc, keyValue) => {console.log(keyValue[0]); acc[keyValue[0]] = keyValue[1]; return acc}, {})
   }
 
   addLike = (toId) => {

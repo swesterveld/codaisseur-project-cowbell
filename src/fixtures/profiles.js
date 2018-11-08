@@ -139,7 +139,7 @@ const profileFixtures = {
     description: 'K3 is a Belgian-Dutch girl group with a Dutch repertoire, whose current line-up is composed of Hanne Verbruggen, Marthe De Pillecyn and Klaasje Meijer, mainly aimed at pre-adolescent children.',
     pictureURL: 'https://images-1.schellywood.be/thumbnail/hero-slider-image/1680/char-hero-image.png',
     location: 'Brussels',
-    contactInfo: {whatsapp: '03463423', messenger: 'facebook.com'},
+    contactInfo: {whatsapp: '03463423', messenger: 'jiri.swen', email: 'jiri.ei@hotmail.com'},
     recordingURLs: [
       'https://www.youtube.com/watch?v=zZ--w92ASdM',
       'https://www.youtube.com/watch?v=zo7ik2q8_4E'
