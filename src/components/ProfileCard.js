@@ -88,7 +88,7 @@ class ProfileCard extends Component {
                 console.log(newUrl);
                 return <div key={url} dangerouslySetInnerHTML={{__html: `${newUrl}`}} />
               case 'Spotify':
-                identifier = url.split('com/'[1])
+                identifier = url.split('com/')[1]
                 return <div key={url} dangerouslySetInnerHTML={{__html: `<iframe width="${MEDIA_WIDTH}" height="${MEDIA_HEIGHT}" src="https://open.spotify.com/embed/${identifier}" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`}} />
               case 'YouTube':
                 identifier = url.split('?v=')[1]

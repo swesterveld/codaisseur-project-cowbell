@@ -82,7 +82,7 @@ class Profile {
           return null;
       }
     })
-    return contactInfoArray.reduce((acc, keyValue) => {console.log(keyValue[0]); acc[keyValue[0]] = keyValue[1]; return acc}, {})
+    return contactInfoArray.reduce((acc, keyValue) => {acc[keyValue[0]] = keyValue[1]; return acc}, {})
   }
 
   addLike = (toId) => {
