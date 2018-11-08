@@ -15,6 +15,7 @@ export default (state = profileFixtures, action = {}) => {
       state[action.payload.currentUserId].matches = updateMatches(action.payload.currentUserId, state);
       return state;
     case 'ADD_FILTER':
+      console.log(action.payload.filterFunction);
       state[action.payload.currentUserId].addFilter(action.payload.filterName, action.payload.filterFunction, action.payload.extraArgument);
       return state;
     case 'REMOVE_FILTER':
