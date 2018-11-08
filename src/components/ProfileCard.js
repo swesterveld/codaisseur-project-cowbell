@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
 export const MAX_CHIPS = 2
+export const MEDIA_HEIGHT = 300
+export const MEDIA_WIDTH = 400
 
 class ProfileCard extends Component {
 
@@ -58,7 +60,24 @@ class ProfileCard extends Component {
         <ul>
           { this.props.profile.recordingURLs.map((url) => {
             let platform = this.extractPlatform(url)
-            return <li className={`${platform.toLowerCase()}-url`} key={url}><a href={url}>{platform}</a></li>
+            let identifier = ''
+            switch (platform) {
+              case 'SoundCloud':
+                let newUrl = url
+                  .replace(/color=%23.+&/, 'color=%2356335c&')
+                  .replace(/width=.+hei/, `width="${MEDIA_WIDTH}" hei`)
+                  .replace(/height=.scro+ /, `height="${MEDIA_HEIGHT}" scro`)
+                console.log(newUrl);
+                return <div key={url} dangerouslySetInnerHTML={{__html: `${newUrl}`}} />
+              case 'Spotify':
+                identifier = url.split('com/'[1])
+                return <div key={url} dangerouslySetInnerHTML={{__html: `<iframe width="${MEDIA_WIDTH}" height="${MEDIA_HEIGHT}" src="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`}} />
+              case 'YouTube':
+                identifier = url.split('?v=')[1]
+                return <div key={url} dangerouslySetInnerHTML={{__html: `<iframe width="${MEDIA_WIDTH}" height="${MEDIA_HEIGHT}" src="https://www.youtube.com/embed/${identifier}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`}} />
+              default:
+                return <li className={`${platform.toLowerCase()}-url`} key={url}><a href={url}>{platform}</a></li>
+            }
           })}
         </ul>
       </div>
