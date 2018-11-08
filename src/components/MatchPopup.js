@@ -4,7 +4,6 @@ import './MatchPopup.css';
 // import PropTypes from 'prop-types';
 
 class MatchPopup extends Component {
-  state = {  }
   render() { 
     return ( this.props.matchedProfile && <div className="main-div">
       <img src={this.props.currentProfile.pictureURL} alt="your profile"></img>
