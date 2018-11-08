@@ -6,10 +6,10 @@ class ProfileCardContainer extends Component {
   state = { 
     showContactDetails: false,
     profile: null,
+    content: true,
   }
 
   componentDidMount() {
-    console.log(this.props.profiles[this.props.currentUserId].matches);
     if (this.props.match.path.includes('settings')) {
       this.setState({profile: this.props.profiles[this.props.currentUserId],
                      showContactDetails: true})
@@ -22,9 +22,17 @@ class ProfileCardContainer extends Component {
     }
   }
 
+  switchToContent = () => {
+    this.setState({content: true});
+  }
+
+  switchToMedia = () => {
+    this.setState({content: false})
+  }
+
   render() {
     return ( <div>
-      <ProfileCard profile={ this.state.profile || this.props.profile } showContactDetails={this.state.showContactDetails} />
+      <ProfileCard profile={ this.state.profile || this.props.profile } showContactDetails={this.state.showContactDetails} switchToContent={this.switchToContent} switchToMedia={this.switchToMedia} content={this.state.content} />
     </div> );
   }
 }

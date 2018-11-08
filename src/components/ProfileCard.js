@@ -14,13 +14,28 @@ class ProfileCard extends Component {
     )
   }
 
-  renderContent() {
-    return (
+  renderSwitchButtons() {
+    return ( 
       <div>
-        {this.renderDescription()}
-        {this.renderMediaURLs()}
-      </div>
+        <button onClick={this.props.switchToContent}>Description</button>
+        <button onClick={this.props.switchToMedia}>Media</button>
+      </div> 
     )
+  }
+
+  renderContent() {
+    if (this.props.content) {
+      return ( <div>
+        {this.renderDescription()}
+        {this.showContactDetails && this.renderContactDetails()}
+      </div> )
+    }
+    else {
+      return ( <div>
+        {this.renderMediaURLs()}
+      </div> )
+    }
+    
   }
 
   extractPlatform(url) {
@@ -76,6 +91,15 @@ class ProfileCard extends Component {
     )
   }
 
+  renderContactDetails() {
+    return (
+      <div>
+        {/* Dit is omdat nu nog de contact details een lege string zijn overal; uiteindelijk moet dit opgesplitst worden per medium in icoontjes enzo */}
+        <p>this.props.profile.contactDetails</p>
+      </div>
+    )
+  }
+
   render() { 
     if (!this.props.profile) {
       return (
@@ -85,8 +109,9 @@ class ProfileCard extends Component {
     else {
       return (
         <div>
-        {this.renderProfilePicture()}
-        {this.renderContent()}
+          {this.renderProfilePicture()}
+          {this.renderSwitchButtons()}
+          {this.renderContent()}
         </div>
       )
     }
