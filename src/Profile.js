@@ -63,6 +63,27 @@ class Profile {
     ]
   }
 
+  static formatContactInfo = (contactInfo) => {
+    Object.entries(contactInfo).map(keyValue => {
+      switch (contactInfo[keyValue[0]]) {
+        // Format: `0652795462`
+        case 'telephone':
+          return `tel:${keyValue[1]}`;
+        // Format: `jiri.sven`
+        case 'messenger':
+          return `http://m.me/${keyValue[1]}`;
+        // Format: `31652795462`
+        case 'whatsapp':
+          return `http://wa.me/${keyValue[1]}`;
+        // Format: jiri.ey@hotmail.com
+        case 'email':
+          return `mailto:${keyValue[1]}`;
+        default:
+          return null;
+      }
+    })
+  }
+
   addLike = (toId) => {
     this.likes.push(toId);
   }

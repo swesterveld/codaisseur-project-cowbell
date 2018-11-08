@@ -114,7 +114,6 @@ class ProfileCard extends Component {
   }
 
   renderContactDetails() {
-    // De juiste formatting van de media zal moeten gebeuren in de constructor van de Musician/Band
     let contactDetails = {...this.props.profile.contactInfo};
     console.log(this.props.profile);
     return (
