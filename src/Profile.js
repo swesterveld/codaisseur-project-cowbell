@@ -5,7 +5,7 @@ class Profile {
     id,             // unique number
     type=null,      // either 'musician' or 'band'
     name='',
-    contactInfo='',
+    contactInfo={},
     description='',
     // vars that might be interesting for filtering
     genres=[],
@@ -17,7 +17,7 @@ class Profile {
     this.id = id;
     this.type = type;
     this.name = name;
-    this.contactInfo = contactInfo;
+    this.contactInfo = {...contactInfo};
     this.description = description;
     this.genres = genres;
     this.location = location;

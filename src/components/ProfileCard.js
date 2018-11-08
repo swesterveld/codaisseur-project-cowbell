@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 
 export const MAX_CHIPS = 2
 
+// Dit dan veranderd worden naar de links naar de svg's ofzo
+const CONTACT_MEDIA = ['telephone', 'messenger', 'whatsapp', 'email']
+
 class ProfileCard extends Component {
 
   renderProfilePicture() {
@@ -27,7 +30,7 @@ class ProfileCard extends Component {
     if (this.props.content) {
       return ( <div>
         {this.renderDescription()}
-        {this.showContactDetails && this.renderContactDetails()}
+        {this.props.showContactDetails && this.renderContactDetails()}
       </div> )
     }
     else {
@@ -92,15 +95,19 @@ class ProfileCard extends Component {
   }
 
   renderContactDetails() {
+    // De juiste formatting van de media zal moeten gebeuren in de constructor van de Musician/Band
+    let contactDetails = {...this.props.profile.contactInfo};
+    console.log(this.props.profile);
     return (
       <div>
-        {/* Dit is omdat nu nog de contact details een lege string zijn overal; uiteindelijk moet dit opgesplitst worden per medium in icoontjes enzo */}
-        <p>this.props.profile.contactDetails</p>
+        {CONTACT_MEDIA
+          .filter(medium => Boolean(contactDetails[medium]))
+          .map(medium => <a key={medium} href={contactDetails[medium]}> {medium} </a>)}
       </div>
     )
   }
 
-  render() { 
+  render() {
     if (!this.props.profile) {
       return (
         <p>No profiles available.</p>
