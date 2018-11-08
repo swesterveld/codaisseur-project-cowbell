@@ -5,8 +5,15 @@ import {connect} from 'react-redux';
 class SettingsContainer extends Component {
   state = {  }
   render() { 
-    return ( <Settings /> );
+    return ( <Settings profile={this.props.profiles[this.props.currentUserId]} /> );
   }
 }
 
-export default SettingsContainer;
+const mapStateToProps = (state) => {
+  return {
+    profiles: state.profiles,
+    currentUserId: state.currentUserId,
+  }
+}
+
+export default connect(mapStateToProps, null)(SettingsContainer);
