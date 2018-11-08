@@ -71,7 +71,7 @@ class ProfileCard extends Component {
                 return <div key={url} dangerouslySetInnerHTML={{__html: `${newUrl}`}} />
               case 'Spotify':
                 identifier = url.split('com/'[1])
-                return <div key={url} dangerouslySetInnerHTML={{__html: `<iframe width="${MEDIA_WIDTH}" height="${MEDIA_HEIGHT}" src="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`}} />
+                return <div key={url} dangerouslySetInnerHTML={{__html: `<iframe width="${MEDIA_WIDTH}" height="${MEDIA_HEIGHT}" src="https://open.spotify.com/embed/${identifier}" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`}} />
               case 'YouTube':
                 identifier = url.split('?v=')[1]
                 return <div key={url} dangerouslySetInnerHTML={{__html: `<iframe width="${MEDIA_WIDTH}" height="${MEDIA_HEIGHT}" src="https://www.youtube.com/embed/${identifier}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`}} />
