@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+export const MAX_CHIPS = 2
+
 class ProfileCard extends Component {
 
   renderProfilePicture() {
@@ -35,7 +37,7 @@ class ProfileCard extends Component {
   }
 
   renderChips(items, cssClass='chip') {
-    let listItems = items.splice(3)
+    let listItems = items.splice(MAX_CHIPS)
     listItems.map(item => {
       { return <li className={cssClass}>{item}</li> }
     })
