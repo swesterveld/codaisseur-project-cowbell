@@ -16,3 +16,7 @@
     --verdigris: #41A7B3;
     --light-blue: #A5D7DA;
 }
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
