@@ -22,7 +22,7 @@ class ProfileBrowserContainer extends Component {
     // Does the state-setting again because this.props.updateCandidates seems to be async, so at the time of componentDidMount() this.state is still empty
     if (oldState.candidates !== this.state.candidates && this.state.candidates.length === this.props.profiles[this.props.currentUserId].candidates.length) {
       this.setState({candidates: this.props.profiles[this.props.currentUserId].candidates});
-      this.getNewCandidate(); 
+      this.getNewCandidate();
     }
   }
 
@@ -80,6 +80,7 @@ const mapStateToProps = (state) => {
   return {
     profiles: state.profiles,
     currentUserId: state.currentUserId,
+    //candidates: state.profiles[state.currentUserId].candidates
   }
 }
 
