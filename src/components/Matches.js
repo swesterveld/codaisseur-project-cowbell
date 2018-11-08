@@ -6,7 +6,7 @@ class Matches extends Component {
   renderMatches() {
     if (this.props.profiles && this.props.profiles.length) {
       return this.props.profiles.map(profile => {
-        return ( <Link to={`/matches/${profile.id}`}><MatchEntry profile={profile} /></Link> )
+        return ( <Link to={`/matches/${profile.id}`} key={profile.id}><MatchEntry profile={profile} /></Link> )
       })
     }
     else return <p>No matches found</p>;
