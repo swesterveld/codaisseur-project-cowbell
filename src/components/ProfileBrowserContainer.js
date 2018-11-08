@@ -6,7 +6,6 @@ import {updateMatches} from '../actions/updateMatches';
 import {addLike} from '../actions/addLike';
 import {addDislike} from '../actions/addDislike';
 import MatchPopup from './MatchPopup';
-import './ProfileBrowserContainer.css';
 
 class ProfileBrowserContainer extends Component {
   state = { candidates: [],
@@ -65,11 +64,11 @@ class ProfileBrowserContainer extends Component {
   
   render() {
     return ( <div>
-      {!this.state.popupCandidate && <ProfileBrowser profile={this.state.currentCandidate} 
+      <ProfileBrowser profile={this.state.currentCandidate} 
                                                      addLike={this.addLike} 
                                                      addDislike={this.addDislike} 
                                                      match={this.props.match} 
-                                                     currentProfile={this.props.profiles[this.props.currentUserId]} />}
+                                                     currentProfile={this.props.profiles[this.props.currentUserId]} />
       {this.state.popupCandidate && <MatchPopup currentProfile={this.props.profiles[this.props.currentUserId]} 
                                                 matchedProfile={this.state.popupCandidate} 
                                                 keepSearching={this.keepSearching} />}
