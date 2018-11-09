@@ -37,9 +37,10 @@
     color: white;
     height: 29px;
     font-size: 14px;
-    line-height: 17px;
+    /*line-height: 17px;*/
     font-weight: var(--semi-bold);
     justify-content: center;
+    /*align-content: center;*/
 }
 
 #cover-tag > #tag-location {
