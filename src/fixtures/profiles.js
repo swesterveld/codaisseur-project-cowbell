@@ -212,7 +212,7 @@ const profileFixtures = {
     name: 'Atomic Kitten',
     genres: ['Pop'],
     description: 'Atomic Kitten are a British pop girl group formed in Liverpool in 1998 whose current members are Natasha Hamilton and Liz McClarnon. The group was founded by Orchestral Manoeuvres in the Dark members Andy McCluskey and Stuart Kershaw, who served as principal songwriters during Atomic Kitten\'s early years.',
-    pictureURL: 'https://image.shutterstock.com/image-photo/small-brown-kitten-isolated-on-260nw-701715115.jpg',
+    pictureURL: 'http://placekitten.com/210/210',
     location: 'Rotterdam',
     contactInfo: {whatsapp: '31634629805', messenger: 'paul.middelkoop', email: 'paul.middelkoop@gmail.com'},
     recordingURLs: [
