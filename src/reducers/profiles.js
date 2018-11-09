@@ -14,6 +14,15 @@ export default (state = profileFixtures, action = {}) => {
     case 'UPDATE_MATCHES':
       state[action.payload.currentUserId].matches = updateMatches(action.payload.currentUserId, state);
       return state;
+    case 'ADD_FILTER':
+      state[action.payload.currentUserId].addFilter(action.payload.filterName, action.payload.filterFunction, action.payload.extraArgument);
+      return state;
+    case 'REMOVE_FILTER':
+      state[action.payload.currentUserId].removeFilter(action.payload.filterName, action.payload.filterFunction, action.payload.extraArgument);
+      return state;
+    case 'CHANGE_FILTER':
+      state[action.payload.currentUserId].changeFilter(action.payload.filterName, action.payload.filterFunction, action.payload.extraArgument);
+      return state;
     default:
       return state;
   }
@@ -58,12 +67,8 @@ function selectByUserFilters(currentUserId, candidateList, profiles) {
   profiles[currentUserId].filters.forEach(filterNamePlusFunction => { /// Zou kunnen met reduce I guess
     filteredCandidates = filteredCandidates.filter(candidateId => {
       // Check if the property to filter on exists
-      console.log(profiles)
-      console.log(profiles[candidateId].genres);
       if (profiles[candidateId][filterNamePlusFunction[0]]) {
         // Run the function defined in the current filter of the current user
-        console.log('yee');
-        console.log(filterNamePlusFunction[1]);
         return filterNamePlusFunction[1](profiles[candidateId][filterNamePlusFunction[0]]);
       }
       else return true;
