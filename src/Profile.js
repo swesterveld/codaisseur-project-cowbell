@@ -101,7 +101,9 @@ class Profile {
   }
 
   removeFilter = (filterName, filterFunction, extraArgument=null) => {
-    const removeIndex = this.filters.findIndex(filter => filter[0] === filterName && filter[1] === filterFunction);
+    console.log(filterName, filterFunction);
+    const removeIndex = this.filters.findIndex(filter => filter[0] === filterName && filter[2] === extraArgument);
+    console.log(removeIndex);
     this.filters.splice(removeIndex, 1);
   }
 
