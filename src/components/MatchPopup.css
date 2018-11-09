@@ -6,6 +6,89 @@
   top: 0;
   bottom: 0;
   z-index: 1000;
-  background-color: teal;
+  background-image: url("../assets/Background_Match.svg");
   margin: 0;
+}
+
+.profile-circle {
+  position: fixed;
+  margin-top: 95px;
+  object-fit: contain;
+  /*
+  height: 215px;
+  width: 215px;
+  */
+  /*background-color: white;*/
+  height: 140px;
+  width: 140px;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  background-color: white;
+}
+
+#own-profile-circle {
+  z-index: 30;
+  left: 46px
+}
+
+#matched-profile-circle {
+  z-index: 30;
+  left: 164px;
+}
+
+#vibe-digger {
+  color: white;
+  text-shadow: 0 1px 0 #41a7b3;
+  position: fixed;
+  left: 58px;
+  right: 58px;
+  top: 250px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.matched-button {
+  width: 150px;
+  height: 50px;
+  position: fixed;
+  right: 105px;
+  border-radius: 10px;
+  text-align: center;
+  border-style: solid;  
+}
+
+#get-in-touch {
+  margin-top: 403px;
+  bottom: 187px;
+  background-color: #FF83A6;
+  color: #FF83A6;
+  box-shadow: 0 4px 2px rgba(0, 0, 0, 0.25);
+  border: none;
+}
+
+#get-in-touch p {
+  color: white;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+
+Link, Link:visited, Link:hover, Link:active, Link:link {
+  text-decoration: none;
+}
+
+#keep-searching {
+  bottom: 124px;
+  background-color: white;
+  border-width: 1px;
+  border-color: #FF83A6;
+}
+
+#keep-searching p {
+  color: #FF83A6;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  margin-top: 11px;
 }
