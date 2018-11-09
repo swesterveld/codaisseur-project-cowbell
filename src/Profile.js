@@ -33,6 +33,7 @@ class Profile {
 
   static genres = () => {
     return [
+      'Disco',
       'Hip-hop',
       'Indie',
       'Jazz',
