@@ -13,9 +13,11 @@ class App extends Component {
     return (
       <div className="App">
         {/* This mockup-overlay div is only used during development */}
+        {/*}
         <div className="mockup-overlay">
           <img className="mockup-image" src={require('./assets/testing/profile_browse_screen.png')} alt="mock"/>
         </div>
+        */}
         <Route path="/" component={HeaderContainer} />
         <Route exact path="/" component={ProfileBrowserContainer} />
         <Route exact path="/profile-list" component={ProfileBrowserContainer} />
