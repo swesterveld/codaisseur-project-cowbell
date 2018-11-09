@@ -9,16 +9,15 @@ class SearchPreferences extends Component {
 
   updateFilters() {
     // Genres, dit kan vast efficienter
-    const genreFilters = this.props.userFilters.filter(filter => filter[0] === 'genres')
-    // console.log(genreFilters);
+    const genreFilters = this.props.userFilters.filter(filter => filter[0] === 'genres');
     GENRES.forEach(filter => {
       if (this.state[filter] && !genreFilters.find(filterArray => filterArray[2] === filter)) {
-        this.setState({ [filter]: false })
+        this.setState({ [filter]: false });
       }
     })
     genreFilters.forEach(filterArray => {
       if (!this.state[filterArray[2]]) {
-        this.setState({ [filterArray[2]]: true })
+        this.setState({ [filterArray[2]]: true });
       }
     })
 
@@ -26,10 +25,10 @@ class SearchPreferences extends Component {
     LOCATIONS.forEach(location => {
       const filterIndex = this.props.userFilters.findIndex(filter => filter[0] === 'location');
       if (filterIndex === undefined || filterIndex < 0) {
-        this.setState({[location]: true})
+        this.setState({[location]: true});
       }
       else {
-        this.setState({[location]: this.filterIncludes('location', location)})
+        this.setState({[location]: this.filterIncludes('location', location)});
       }
     })
   }

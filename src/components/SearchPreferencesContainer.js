@@ -27,7 +27,6 @@ class SearchPreferencesContainer extends Component {
     const functionToChange = genres => eval(`genres.includes('${genreToChange}')`); // Template-probleem...  dit lijkt het te fixen maar vind het nog steeds vaag dat dit de enige manier lijkt te zijn lol
     // const functionToChange = new Function('genre', ``)
     // genres => genres.includes('Pop'); // Template-probleem...
-    console.log(functionToChange);  
     
     if (event.target.checked) {
       this.addFilter('genres', functionToChange, genreToChange);
@@ -42,14 +41,11 @@ class SearchPreferencesContainer extends Component {
     const locationToChange = event.target.value;
     if (event.target.checked && !locations.includes(locationToChange)) {
       locations.push(locationToChange);
-      console.log('adding');
     }
     else if (!event.target.checked && locations.includes(locationToChange)) { 
       const spliceIndex = locations.findIndex((item) => item === locationToChange);
       locations.splice(spliceIndex, 1);
-      console.log('removing');
     }
-    console.log(locations);
     const functionToChange = location => eval(`${JSON.stringify(locations)}.includes(location)`)
     this.changeFilter('location', functionToChange, locations);
   }
