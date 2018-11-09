@@ -32,7 +32,7 @@
 
 #cover-tag > #tag-name {
     display: flex;
-    background-color: var(--light-blue);
+    background-color: var(--verdigris);
     border-radius: 10px 10px 0 0;
     color: white;
     height: 29px;
