@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './ProfileCard.css'
+import ProfilePicture from './ProfilePicture'
 
 export const MAX_CHIPS = 2
 export const MEDIA_HEIGHT = 130
@@ -9,20 +10,6 @@ export const MEDIA_WIDTH = 230
 const CONTACT_MEDIA = ['telephone', 'messenger', 'whatsapp', 'email']
 
 class ProfileCard extends Component {
-
-  renderProfilePicture() {
-    return (
-      <div id={"cover"}>
-        <div>
-          <img id={"cover-photo"} src={this.props.profile.pictureURL} alt={this.props.profile.name}/>
-          <div id={"cover-tag"}>
-            <div id={"tag-name"}>{this.props.profile.name}, {this.props.profile.age}</div>
-            <div id={"tag-location"}>{this.props.profile.location}</div>
-          </div>
-        </div>
-      </div>
-    )
-  }
 
   renderSwitchButtons() {
     return ( 
@@ -131,7 +118,7 @@ class ProfileCard extends Component {
     else {
       return (
         <div>
-          {this.renderProfilePicture()}
+          <ProfilePicture profile={this.props.profile} />
           {this.renderSwitchButtons()}
           {this.renderContent()}
         </div>
