@@ -62,18 +62,18 @@ class SearchPreferences extends Component {
   render() { 
     return ( <div>
       <div>
-        <p>Genres (AND logic)</p>
-        <form>
-          {GENRES.map(genre => <p key={genre}><input type="checkbox" value={genre} checked={this.state[genre] || false} onChange={this.handleGenreChange}/> {genre} </p>)}
-        </form>
-      </div>
-      <div>
         <p>Locations (OR logic)</p>
         <form>
           {LOCATIONS.map(location => <p key={location}><input type="checkbox" 
                                                               value={location}
                                                               checked={this.state[location] || false}
                                                               onChange={this.handleLocationChange}/> {location} </p>)}
+        </form>
+      </div>
+      <div>
+        <p>Genres (AND logic)</p>
+        <form>
+          {GENRES.map(genre => <p key={genre}><input type="checkbox" value={genre} checked={this.state[genre] || false} onChange={this.handleGenreChange}/> {genre} </p>)}
         </form>
       </div>
     </div> );

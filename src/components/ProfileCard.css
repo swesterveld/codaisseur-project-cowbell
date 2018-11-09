@@ -79,7 +79,28 @@
 }
 
 #details-media {
+    position: fixed;
+    left: 65px;
+    top: 390px;
+    /* border-radius: 10px; */
+    overflow: hidden;
+    z-index: 10;
+    padding: 0;
+    border: 0;
+}
 
+.media-arrow {
+    position: fixed;
+    bottom: 172px;
+    z-index: 99;
+}
+
+#prev-media {
+    left: 18px;
+}
+
+#next-media {
+    right: 18px;
 }
 
 .genre-chip,
@@ -119,6 +140,8 @@
     /*margin-top: -81px;*/
     display: flex;
     /*justify-content: space-between;*/
+    position: fixed;
+    bottom: 50px;
 }
 
 #voting-bt-back {
