@@ -23,10 +23,8 @@ class SearchPreferencesContainer extends Component {
 
   onChangeGenre = (event) => {
     const genreToChange = event.target.value;
-    // oh en deze filterfunctie is ook niet meer in de oorspornkelijke vorm met dat 'genres' niet gebruikt wordt?
-    const functionToChange = genres => eval(`genres.includes('${genreToChange}')`); // Template-probleem...  dit lijkt het te fixen maar vind het nog steeds vaag dat dit de enige manier lijkt te zijn lol
+    const functionToChange = genres => eval(`genres.includes('${genreToChange}')`);
     // const functionToChange = new Function('genre', ``)
-    // genres => genres.includes('Pop'); // Template-probleem...
     
     if (event.target.checked) {
       this.addFilter('genres', functionToChange, genreToChange);
