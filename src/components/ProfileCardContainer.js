@@ -27,7 +27,7 @@ class ProfileCardContainer extends Component {
   }
 
   switchToMedia = () => {
-    this.setState({content: false})
+    this.setState({content: false});
   }
 
   render() {

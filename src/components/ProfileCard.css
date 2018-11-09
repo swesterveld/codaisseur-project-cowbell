@@ -5,7 +5,7 @@
     display: flex;
     margin-top: 35px;
     margin-left: 72px;
-    object-fit: contain;
+    object-fit: cover;
     /*
     height: 215px;
     width: 215px;
@@ -40,6 +40,7 @@
     /*line-height: 17px;*/
     font-weight: var(--semi-bold);
     justify-content: center;
+    box-shadow: 0 2px 2px rgba(0,0,0,0.25)
     /*align-content: center;*/
 }
 
@@ -52,6 +53,7 @@
     justify-content: center;
     font-size: 13px;
     line-height: 16px;
+    box-shadow: 0 2px 2px rgba(0,0,0,0.25)
 }
 
 #details-options {
@@ -79,7 +81,28 @@
 }
 
 #details-media {
+    position: fixed;
+    left: 65px;
+    top: 390px;
+    /* border-radius: 10px; */
+    overflow: hidden;
+    z-index: 10;
+    padding: 0;
+    border: 0;
+}
 
+.media-arrow {
+    position: fixed;
+    bottom: 172px;
+    z-index: 99;
+}
+
+#prev-media {
+    left: 18px;
+}
+
+#next-media {
+    right: 18px;
 }
 
 .genre-chip,
@@ -120,6 +143,8 @@
     /*margin-top: -81px;*/
     display: flex;
     /*justify-content: space-between;*/
+    position: fixed;
+    bottom: 50px;
 }
 
 #voting-bt-back {
