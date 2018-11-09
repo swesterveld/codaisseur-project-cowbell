@@ -16,6 +16,7 @@ class App extends Component {
         {/*}
         <div className="mockup-overlay">
           <img className="mockup-image" src={require('./assets/testing/profile_browse_screen.png')} alt="mock"/>
+          <img className="mockup-image" src={require('./assets/testing/settings_screen.png')} alt="mock"/>
         </div>
         */}
         <Route path="/" component={HeaderContainer} />
