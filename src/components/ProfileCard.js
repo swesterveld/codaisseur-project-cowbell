@@ -9,6 +9,7 @@ export const MEDIA_WIDTH = 230
 const CONTACT_MEDIA = ['telephone', 'messenger', 'whatsapp', 'email']
 
 class ProfileCard extends Component {
+  state = { currentMedia: 0 }
 
   renderProfilePicture() {
     return (
@@ -46,7 +47,6 @@ class ProfileCard extends Component {
         {this.renderMediaURLs()}
       </div> )
     }
-    
   }
 
   extractPlatform(url) {
@@ -82,31 +82,47 @@ class ProfileCard extends Component {
     return keywords.join(', ')
   }
 
+  mapMediaURLtoDiv(url) {
+    let platform = this.extractPlatform(url)
+    let identifier = ''
+    switch (platform) {
+      case 'SoundCloud':
+        let newUrl = url
+          .replace(/color=%23.+&/, 'color=%2356335c&')
+          .replace(/width=.+hei/, `width="${MEDIA_WIDTH}" hei`)
+          .replace(/height=.scro+ /, `height="${MEDIA_HEIGHT}" scro`)
+        return <div key={url} className="media-frame" dangerouslySetInnerHTML={{__html: `${newUrl}`}} />
+      case 'Spotify':
+        identifier = url.split('com/')[1]
+        return <div key={url} className="media-frame" dangerouslySetInnerHTML={{__html: `<iframe width="${MEDIA_WIDTH}" height="${MEDIA_HEIGHT}"src="https://open.spotify.com/embed/${identifier}" frameborder="0" allowtransparency="true"allow="encrypted-media"></iframe>`}} />
+      case 'YouTube':
+        identifier = url.split('?v=')[1]
+        return <div key={url} className="media-frame" dangerouslySetInnerHTML={{__html: `<iframe width="${MEDIA_WIDTH}" height="${MEDIA_HEIGHT}"src="https://www.youtube.com/embed/${identifier}" frameborder="0" allow="accelerometer; autoplay; encrypted-media;gyroscope; picture-in-picture" allowfullscreen></iframe>`}} />
+      default:
+        return <li className={`${platform.toLowerCase()}-url`} key={url}><a href={url}>{platform}</a></li>
+    }
+  }
+
+  nextMedia = () => {
+    if (this.state.currentMedia >= this.props.profile.recordingURLs.length - 1) {
+      this.setState({currentMedia: 0});
+    }
+    else this.setState({currentMedia: this.state.currentMedia + 1});
+  }
+
+  prevMedia = () => {
+    if (this.state.currentMedia <= 0) {
+      this.setState({currentMedia: this.props.profile.recordingURLs.length - 1});
+    }
+    else this.setState({currentMedia: this.state.currentMedia - 1});
+  }
+
   renderMediaURLs() {
     return (
       <div id={"details-media"}>
-        <ul>
-          { this.props.profile.recordingURLs.map((url) => {
-            let platform = this.extractPlatform(url)
-            let identifier = ''
-            switch (platform) {
-              case 'SoundCloud':
-                let newUrl = url
-                  .replace(/color=%23.+&/, 'color=%2356335c&')
-                  .replace(/width=.+hei/, `width="${MEDIA_WIDTH}" hei`)
-                  .replace(/height=.scro+ /, `height="${MEDIA_HEIGHT}" scro`)
-                return <div key={url} dangerouslySetInnerHTML={{__html: `${newUrl}`}} />
-              case 'Spotify':
-                identifier = url.split('com/')[1]
-                return <div key={url} dangerouslySetInnerHTML={{__html: `<iframe width="${MEDIA_WIDTH}" height="${MEDIA_HEIGHT}" src="https://open.spotify.com/embed/${identifier}" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`}} />
-              case 'YouTube':
-                identifier = url.split('?v=')[1]
-                return <div key={url} dangerouslySetInnerHTML={{__html: `<iframe width="${MEDIA_WIDTH}" height="${MEDIA_HEIGHT}" src="https://www.youtube.com/embed/${identifier}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`}} />
-              default:
-                return <li className={`${platform.toLowerCase()}-url`} key={url}><a href={url}>{platform}</a></li>
-            }
-          })}
-        </ul>
+        { this.mapMediaURLtoDiv(this.props.profile.recordingURLs[this.state.currentMedia]) }
+        <img id={'prev-media'} className="media-arrow" src={require('../assets/Previous_media.svg')} alt="Previous media" onClick={this.prevMedia} />
+        <img id={'next-media'} className="media-arrow" src={require('../assets/Next_Media.svg')} alt="Previous media" onClick={this.nextMedia} />
       </div>
     )
   }
