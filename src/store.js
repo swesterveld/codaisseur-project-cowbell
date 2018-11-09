@@ -2,13 +2,22 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import reducer from './reducers';
 import ReduxThunk from 'redux-thunk';
 
-const devtools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
+export const DEVELOPMENT = false
 
-const enhancer = compose(
-  applyMiddleware(ReduxThunk),
-  devtools
-)
+let store
 
-const store = createStore(reducer, enhancer);
+if (DEVELOPMENT === true) {
+  const devtools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
+  const enhancer = compose(
+    applyMiddleware(ReduxThunk),
+    devtools
+  )
+  store = createStore(reducer, enhancer);
+} else {
+  const enhancer = compose(
+    applyMiddleware(ReduxThunk),
+  )
+  store = createStore(reducer, enhancer);
+}
 
 export default store;
