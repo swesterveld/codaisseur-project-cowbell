@@ -2,7 +2,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import reducer from './reducers';
 import ReduxThunk from 'redux-thunk';
 
-export const DEVELOPMENT = false
+export const DEVELOPMENT = true
 
 let store
 
