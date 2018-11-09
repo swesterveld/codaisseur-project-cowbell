@@ -70,3 +70,44 @@
     margin-left: 15px;
     margin-bottom: 8px;
 }
+
+#details-box {
+    margin-left: 33px;
+    width: 295px;
+    height: 258px;
+}
+
+#details-media {
+
+}
+
+.genre-chip,
+.role-chip {
+    display: inline-block;
+    background: var(--verdigris);
+    padding: 0 12px;
+    -webkit-border-radius: 32px;
+    -moz-border-radius: 32px;
+    border-radius: 32px;
+    font-size: 13px;
+}
+
+#details-keywords {
+    display: flex;
+    padding-top: 19px;
+    justify-content: space-between;
+}
+
+#details-genres {
+    font-weight: var(--semi-bold);
+}
+
+#details-roles {
+}
+
+#details-description {
+    padding-top: 12px;
+    font-size: 12px;
+    font-weight: var(--semi-bold);
+    line-height: 19px;
+}

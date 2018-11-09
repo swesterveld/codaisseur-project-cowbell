@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import './ProfileCard.css'
 
 export const MAX_CHIPS = 2
-export const MEDIA_HEIGHT = 300
-export const MEDIA_WIDTH = 400
+export const MEDIA_HEIGHT = 130
+export const MEDIA_WIDTH = 230
 
 // Dit dan veranderd worden naar de links naar de svg's ofzo
 const CONTACT_MEDIA = ['telephone', 'messenger', 'whatsapp', 'email']
@@ -77,10 +77,14 @@ class ProfileCard extends Component {
     )
   }
 
+  renderKeywords(list) {
+    let keywords = [...list]
+    return keywords.join(', ')
+  }
+
   renderMediaURLs() {
     return (
-      <div>
-        <h2>Media</h2>
+      <div id={"details-media"}>
         <ul>
           { this.props.profile.recordingURLs.map((url) => {
             let platform = this.extractPlatform(url)
@@ -109,12 +113,14 @@ class ProfileCard extends Component {
   }
 
   renderDescription() {
+    let roles = this.props.profile.type === 'musician' ? this.props.profile.roles : this.props.profile.wantedRoles
     return (
-      <div>
-        <h2>Description</h2>
-          { this.renderChips(this.props.profile.genres, "genre-chip") }
-          { this.props.profile.type === 'musician' ? this.renderChips(this.props.profile.roles) : this.renderChips(this.props.profile.wantedRoles) }
-        <p>{this.props.profile.description}</p>
+      <div id={"details-box"}>
+        <div id={"details-keywords"}>
+          <span id={"details-genres"}>{ this.renderKeywords(this.props.profile.genres) }</span>
+          <span id={"details-roles"}>{ this.renderKeywords(roles) }</span>
+        </div>
+        <div id={"details-description"}>{this.props.profile.description}</div>
       </div>
     )
   }
