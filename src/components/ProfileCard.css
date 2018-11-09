@@ -109,8 +109,9 @@
 #details-description {
     padding-top: 12px;
     font-size: 12px;
-    font-weight: var(--semi-bold);
     line-height: 19px;
+    font-family: 'Lato', sans-serif;
+    font-weight: var(--semi-bold);
 }
 
 #voting-buttons {
