@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import './ProfileCard.css'
 
 export const MAX_CHIPS = 2
-export const MEDIA_HEIGHT = 300
-export const MEDIA_WIDTH = 400
+export const MEDIA_HEIGHT = 130
+export const MEDIA_WIDTH = 230
 
 // Dit dan veranderd worden naar de links naar de svg's ofzo
 const CONTACT_MEDIA = ['telephone', 'messenger', 'whatsapp', 'email']
@@ -11,20 +12,25 @@ class ProfileCard extends Component {
 
   renderProfilePicture() {
     return (
-      <div>
-        <img src={this.props.profile.pictureURL} alt={this.props.profile.name}/>
-        <p>{this.props.profile.name}, {this.props.profile.age}</p>
-        <p>{this.props.profile.location}</p>
+      <div id={"cover"}>
+        <div>
+          <img id={"cover-photo"} src={this.props.profile.pictureURL} alt={this.props.profile.name}/>
+          <div id={"cover-tag"}>
+            <div id={"tag-name"}>{this.props.profile.name}, {this.props.profile.age}</div>
+            <div id={"tag-location"}>{this.props.profile.location}</div>
+          </div>
+        </div>
       </div>
     )
   }
 
   renderSwitchButtons() {
     return ( 
-      <div>
-        <button onClick={this.props.switchToContent}>Description</button>
-        <button onClick={this.props.switchToMedia}>Media</button>
-      </div> 
+      <div id={"details-options"}>
+        <img id={"option-description"} src={require('../assets/bt_profile_person_active.svg')} onClick={this.props.switchToContent} alt={"Description"}/>
+        <img id={"option-media"} src={require('../assets/bt_profile_media_inactive.svg')} onClick={this.props.switchToMedia} alt={"Media"}/>
+        <img id={"option-share"} src={require('../assets/bt_share.svg')} alt={"Share"}/>
+      </div>
     )
   }
 
@@ -71,10 +77,14 @@ class ProfileCard extends Component {
     )
   }
 
+  renderKeywords(list) {
+    let keywords = [...list]
+    return keywords.join(', ')
+  }
+
   renderMediaURLs() {
     return (
-      <div>
-        <h2>Media</h2>
+      <div id={"details-media"}>
         <ul>
           { this.props.profile.recordingURLs.map((url) => {
             let platform = this.extractPlatform(url)
@@ -102,12 +112,14 @@ class ProfileCard extends Component {
   }
 
   renderDescription() {
+    let roles = this.props.profile.type === 'musician' ? this.props.profile.roles : this.props.profile.wantedRoles
     return (
-      <div>
-        <h2>Description</h2>
-          { this.renderChips(this.props.profile.genres, "genre-chip") }
-          { this.props.profile.type === 'musician' ? this.renderChips(this.props.profile.roles) : this.renderChips(this.props.profile.wantedRoles) }
-        <p>{this.props.profile.description}</p>
+      <div id={"details-box"}>
+        <div id={"details-keywords"}>
+          <span id={"details-genres"}>{ this.renderKeywords(this.props.profile.genres) }</span>
+          <span id={"details-roles"}>{ this.renderKeywords(roles) }</span>
+        </div>
+        <div id={"details-description"}>{this.props.profile.description}</div>
       </div>
     )
   }

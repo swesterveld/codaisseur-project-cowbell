@@ -1,0 +1,36 @@
+/*
+.mockup-overlay {
+    top: 0;
+    position: absolute;
+    z-index: -1;
+    opacity: 0.4;
+}
+
+.mockup-image {
+    width: 360px;
+    height: 640px;
+}
+*/
+
+:root {
+    --tickle-me-pink: #FF83A6;
+    --pineapple: #56335C;
+    --verdigris: #41A7B3;
+    --light-blue: #A5D7DA;
+    --regular: 400;
+    --semi-bold: 600;
+    --bold: 700;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: url("assets/background.svg");
+    background-repeat: no-repeat;
+}
+
+/*
+* {
+    outline: 1px solid red;
+    outline-offset: -1px;
+}
+*/
