@@ -1,0 +1,43 @@
+#setting-buttons {
+    display: flex;
+    flex-direction: row;
+    /*justify-content: space-between;*/
+    margin-left: 38px;
+    margin-top: 32px;
+    width: 284px;
+    /*height: 279px;*/
+}
+
+.settings-item {
+    width: 107px;
+    height: 135px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    line-height: normal;
+    font-size: 18px;
+    text-align: center;
+}
+
+#settings-filters {
+    text-align: center;
+}
+#settings-bt-filters {
+    /*margin-left: 24px;*/
+}
+
+#settings-settings {
+    margin-top: 144px;
+    text-align: center;
+}
+#settings-bt-settings {
+    /*margin-left: 24px;*/
+}
+
+#settings-profile {
+    text-align: center;
+
+}
+#settings-bt-profile {
+    /*margin-left: 27px;*/
+}
