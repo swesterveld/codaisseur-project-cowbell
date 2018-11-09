@@ -13,12 +13,7 @@
 .profile-circle {
   position: fixed;
   margin-top: 95px;
-  object-fit: contain;
-  /*
-  height: 215px;
-  width: 215px;
-  */
-  /*background-color: white;*/
+  object-fit: cover;
   height: 140px;
   width: 140px;
   border-radius: 50%;
