@@ -26,10 +26,11 @@ class ProfileCard extends Component {
 
   renderSwitchButtons() {
     return ( 
-      <div>
-        <button onClick={this.props.switchToContent}>Description</button>
-        <button onClick={this.props.switchToMedia}>Media</button>
-      </div> 
+      <div id={"details-options"}>
+        <img id={"option-description"} src={require('../assets/bt_profile_person_active.svg')} onClick={this.props.switchToContent} alt={"Description"}/>
+        <img id={"option-media"} src={require('../assets/bt_profile_media_inactive.svg')} onClick={this.props.switchToMedia} alt={"Media"}/>
+        <img id={"option-share"} src={require('../assets/bt_share.svg')} alt={"Share"}/>
+      </div>
     )
   }
 

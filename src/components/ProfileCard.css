@@ -53,3 +53,20 @@
     font-size: 13px;
     line-height: 16px;
 }
+
+#details-options {
+    margin-top: -23px;
+}
+
+#option-description {
+    margin-left: 68px;
+}
+
+#option-media {
+    margin-left: 152px;
+}
+
+#option-share {
+    margin-left: 15px;
+    margin-bottom: 8px;
+}
