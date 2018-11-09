@@ -95,10 +95,22 @@ class Profile {
   }
 
   // Als we dit willen integreren in de settings enzo moet er een ADD_FILTER action komen en moet dat via de reducer gestufft kunnen worden
-  addFilter = (filterName, filterFunction) => {
+  addFilter = (filterName, filterFunction, extraArgument=null) => {
     // filterFunction should accept a certain property of a profile (e.g. `age` which the number 21 is assigned to) and 
     // return `true` if the object satisfies the criteria (and `false` otherwise)
-    this.filters.push([filterName, filterFunction])
+    this.filters.push([filterName, filterFunction, extraArgument])
+  }
+
+  removeFilter = (filterName, filterFunction, extraArgument=null) => {
+    console.log(filterName, filterFunction);
+    const removeIndex = this.filters.findIndex(filter => filter[0] === filterName && filter[2] === extraArgument);
+    console.log(removeIndex);
+    this.filters.splice(removeIndex, 1);
+  }
+
+  changeFilter = (filterName, newFilterFunction, extraArgument=null) => {
+    const removeIndex = this.filters.findIndex(filter => filter[0] === filterName);
+    this.filters.splice(removeIndex, 1, [filterName, newFilterFunction, extraArgument])
   }
 }
 
@@ -166,4 +178,4 @@ class Band extends Profile {
   }
 }
 
-export {Musician, Band};
+export {Profile, Musician, Band};
