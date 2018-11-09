@@ -5,7 +5,7 @@
     display: flex;
     margin-top: 35px;
     margin-left: 72px;
-    object-fit: contain;
+    object-fit: cover;
     /*
     height: 215px;
     width: 215px;
