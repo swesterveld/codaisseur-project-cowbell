@@ -62,21 +62,6 @@ class ProfileCard extends Component {
     })
   }
 
-  renderChips(items, cssClass='chip') {
-    let listItems = JSON.parse(JSON.stringify(items))
-    listItems.splice(MAX_CHIPS)
-
-    return (
-      <ul>
-      {
-        listItems.map(item => {
-          return <li key={item} className={cssClass}>{item}</li>
-        })
-      }
-      </ul>
-    )
-  }
-
   renderKeywords(list) {
     let keywords = [...list]
     return keywords.join(', ')
