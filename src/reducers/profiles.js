@@ -21,6 +21,9 @@ export default (state = profileFixtures, action = {}) => {
     case 'REMOVE_FILTER':
       state[action.payload.currentUserId].removeFilter(action.payload.filterName, action.payload.filterFunction, action.payload.extraArgument);
       return state;
+    case 'CHANGE_FILTER':
+      state[action.payload.currentUserId].changeFilter(action.payload.filterName, action.payload.filterFunction, action.payload.extraArgument);
+      return state;
     default:
       return state;
   }

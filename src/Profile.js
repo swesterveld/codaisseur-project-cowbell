@@ -97,14 +97,17 @@ class Profile {
   addFilter = (filterName, filterFunction, extraArgument=null) => {
     // filterFunction should accept a certain property of a profile (e.g. `age` which the number 21 is assigned to) and 
     // return `true` if the object satisfies the criteria (and `false` otherwise)
-    console.log(filterName);
-    console.log(filterFunction);
     this.filters.push([filterName, filterFunction, extraArgument])
   }
 
   removeFilter = (filterName, filterFunction, extraArgument=null) => {
     const removeIndex = this.filters.findIndex(filter => filter[0] === filterName && filter[1] === filterFunction);
     this.filters.splice(removeIndex, 1);
+  }
+
+  changeFilter = (filterName, newFilterFunction, extraArgument=null) => {
+    const removeIndex = this.filters.findIndex(filter => filter[0] === filterName);
+    this.filters.splice(removeIndex, 1, [filterName, newFilterFunction, extraArgument])
   }
 }
 

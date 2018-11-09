@@ -85,7 +85,6 @@ class ProfileCard extends Component {
                   .replace(/color=%23.+&/, 'color=%2356335c&')
                   .replace(/width=.+hei/, `width="${MEDIA_WIDTH}" hei`)
                   .replace(/height=.scro+ /, `height="${MEDIA_HEIGHT}" scro`)
-                console.log(newUrl);
                 return <div key={url} dangerouslySetInnerHTML={{__html: `${newUrl}`}} />
               case 'Spotify':
                 identifier = url.split('com/')[1]
