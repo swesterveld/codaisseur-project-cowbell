@@ -74,7 +74,8 @@
 #details-box {
     margin-left: 33px;
     width: 295px;
-    height: 258px;
+    /*height: 258px;*/
+    height: 175px;
 }
 
 #details-media {
@@ -110,4 +111,24 @@
     font-size: 12px;
     font-weight: var(--semi-bold);
     line-height: 19px;
+}
+
+#voting-buttons {
+    margin-left: 33px;
+    width: 295px;
+    /*margin-top: -81px;*/
+    display: flex;
+    /*justify-content: space-between;*/
+}
+
+#voting-bt-back {
+    margin-left: 15px;
+}
+
+#voting-bt-dislike {
+    margin-left: 35px;
+}
+
+#voting-bt-like {
+    margin-left: 95px;
 }
