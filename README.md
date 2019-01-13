@@ -18,6 +18,9 @@ Besides that, for the sake of simplicity we've taken into account a couple of as
     * The musician will (dis)like other musicians *on behalf of* his/her band
     * ...
 
+## Demo
+
+![gif-1](readme-images/cowbell-1.gif)
 
 # Technical notes
 
